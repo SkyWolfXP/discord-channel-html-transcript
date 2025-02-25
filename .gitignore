@@ -3,6 +3,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Development Only ###
+tailwind.config.js
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
