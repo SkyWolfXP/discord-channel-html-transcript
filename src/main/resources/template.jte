@@ -4,8 +4,8 @@
 @import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
 @import net.dv8tion.jda.api.interactions.components.buttons.Button
 @import net.dv8tion.jda.api.interactions.components.selections.SelectMenu
-@import com.github.skywolfxp.jda.transcriptGenerator.TranscriptConstants
-@import com.github.skywolfxp.jda.transcriptGenerator.TranscriptUtils
+@import com.github.skywolfxp.transcript.TranscriptConstants
+@import com.github.skywolfxp.transcript.TranscriptUtils
 
 @param List<Message> messages 
 @param TextChannel textChannel
