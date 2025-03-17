@@ -1,26 +1,23 @@
 name: Maven Package
 
-on:
-  release:
-    types: [created]
+on: workflow_dispatch
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
 
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn clean deploy -Dgithub.actor=${{ github.actor }} -Dgithub.token=${{ secrets.GITHUB_TOKEN }}
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+      - name: Publish to GitHub Packages Apache Maven
+        run: mvn clean deploy -Dgithub.actor=${{ github.actor }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
