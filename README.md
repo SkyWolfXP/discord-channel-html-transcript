@@ -24,7 +24,7 @@ channel's history.
 
 ## Installation
 
-### Maven
+![Apache Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=Apache+Maven&logoColor=FFFFFF)
 
 ```xml
 
