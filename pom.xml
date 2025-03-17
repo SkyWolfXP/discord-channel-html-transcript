@@ -16,6 +16,14 @@
     <jte.version>3.1.16</jte.version>
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub SkyWolfXP Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/SkyWolfXP/discord-jda-html-channel-transcript</url>
+    </repository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>net.dv8tion</groupId>
@@ -39,6 +47,17 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.14.0</version>
+
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+
       <plugin>
         <groupId>gg.jte</groupId>
         <artifactId>jte-maven-plugin</artifactId>
