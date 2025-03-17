@@ -16,17 +16,15 @@ channel's history.
   - Images
   - Other Files
 
-## Getting Started
-
-### Prerequisites
+## Prerequisites
 
 - **Java 21+**
 - [**Java Discord API**](https://github.com/discord-jda/JDA) v5.3.0+ *(Included)*
 - [**Java Template Engine**](https://github.com/casid/jte/) v3.1.16+ *(Included)*
 
-### Installation
+## Installation
 
-#### Maven
+### Maven
 
 ```xml
 
@@ -37,7 +35,7 @@ channel's history.
 </dependency>
 ```
 
-### Work In-Progress
+## Work In-Progress
 
 - Build
   - [ ] Add Gradle Support
