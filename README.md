@@ -16,17 +16,35 @@ channel's history.
   - Images
   - Other Files
 
-## Prerequisites
+## Getting Started
+
+### Prerequisites
 
 - **Java 21+**
 - [**Java Discord API**](https://github.com/discord-jda/JDA) v5.3.0+ *(Included)*
 - [**Java Template Engine**](https://github.com/casid/jte/) v3.1.16+ *(Included)*
 
-### To-Do
+### Installation
 
-- [ ] Slash Command Replies
-- [ ] System Messages
-- [ ] Threads
+#### Maven
+
+```xml
+
+<dependency>
+  <groupId>com.github.skywolfxp</groupId>
+  <artifactId>discord-jda-html-channel-transcript</artifactId>
+  <version>${version}</version>
+</dependency>
+```
+
+### Work In-Progress
+
+- Build
+  - [ ] Add Gradle Support
+- Transcript
+  - [ ] Slash Command Replies
+  - [ ] System Messages
+  - [ ] Threads
 
 ## Socials
 
