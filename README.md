@@ -1,4 +1,4 @@
-# Discord JDA HTML Channel Transcript
+<h1 style="text-align:center">Discord JDA HTML Channel Transcript</h1>
 
 Discord JDA HTML Channel Transcript is capable of creating a neat, Discord-like HTML file containing a
 channel's history.
