@@ -8,6 +8,7 @@
   <artifactId>discord-jda-html-channel-transcript</artifactId>
   <version>1.0.0</version>
 
+  <name>discord-jda-html-channel-transcript</name>
   <description>
     Java library for generating Discord-like HTML transcripts, Using Java Discord API &amp; Java Template Engine
   </description>
@@ -20,6 +21,15 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
+
+  <developers>
+    <developer>
+      <name>SkyWolfXP</name>
+      <email>skywolfxp@gmail.com</email>
+      <organization>SkyWolfXP</organization>
+      <organizationUrl>https://github.com/SkyWolfXP</organizationUrl>
+    </developer>
+  </developers>
 
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
@@ -55,7 +65,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.14.0</version>
-
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
@@ -63,12 +72,38 @@
       </plugin>
 
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.11.2</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.3.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
         <groupId>org.sonatype.central</groupId>
         <artifactId>central-publishing-maven-plugin</artifactId>
         <version>0.7.0</version>
-
         <extensions>true</extensions>
-
         <configuration>
           <publishingServerId>central</publishingServerId>
           <autoPublish>true</autoPublish>
@@ -79,18 +114,15 @@
         <groupId>gg.jte</groupId>
         <artifactId>jte-maven-plugin</artifactId>
         <version>${jte.version}</version>
-
         <configuration>
           <contentType>Html</contentType>
           <binaryStaticContent>true</binaryStaticContent>
           <sourceDirectory>${project.basedir}/src/main/resources</sourceDirectory>
           <targetDirectory/>
         </configuration>
-
         <executions>
           <execution>
             <phase>generate-sources</phase>
-
             <goals>
               <goal>generate</goal>
             </goals>
