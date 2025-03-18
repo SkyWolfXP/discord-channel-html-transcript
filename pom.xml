@@ -46,6 +46,14 @@
     <jte.version>3.1.16</jte.version>
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>ossrh</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>net.dv8tion</groupId>
