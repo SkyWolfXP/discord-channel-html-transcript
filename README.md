@@ -37,8 +37,6 @@ channel's history.
 
 ## Work In-Progress
 
-- **Build**
-  - [ ] Add Gradle Support
 - **Transcript**
   - [ ] Slash Command Replies
   - [ ] System Messages
