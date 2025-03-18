@@ -21,5 +21,5 @@ jobs:
       - name: Publish to GitHub Packages Apache Maven
         run: mvn clean deploy -Dgithub.actor=${{ github.actor }}
         env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
