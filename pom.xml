@@ -31,6 +31,14 @@
     </developer>
   </developers>
 
+  <scm>
+    <connection>scm:git:git://github.com/SkyWolfXP/discord-jda-html-channel-transcript.git</connection>
+    <developerConnection>
+      scm:git:ssh://git@github.com:SkyWolfXP/discord-jda-html-channel-transcript.git
+    </developerConnection>
+    <url>https://github.com/SkyWolfXP/discord-jda-html-channel-transcript</url>
+  </scm>
+
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
