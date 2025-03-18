@@ -1,7 +1,11 @@
 <h1 align="center">Discord JDA HTML Channel Transcript</h1>
 
-Discord JDA HTML Channel Transcript is capable of creating a neat, Discord-like HTML file containing a
-channel's history.
+<p align="center">
+<img alt="Maven Central" align="center" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-jda-html-channel-transcript?style=for-the-badge&label=Maven%20Central"></p>
+
+Java library to generate easily shareable, Discord-like offline HTML file of
+channels, Using [**Java Discord API**](https://github.com/discord-jda/JDA) &
+[**Java Template Engine**](https://github.com/casid/jte/).
 
 ## Features
 
@@ -19,8 +23,6 @@ channel's history.
 ## Prerequisites
 
 - **Java 21+**
-- [**Java Discord API**](https://github.com/discord-jda/JDA) v5.3.0+ *(Included)*
-- [**Java Template Engine**](https://github.com/casid/jte/) v3.1.16+ *(Included)*
 
 ## Installation
 
@@ -28,11 +30,25 @@ channel's history.
 
 ```xml
 
-<dependency>
-  <groupId>com.github.skywolfxp</groupId>
-  <artifactId>discord-jda-html-channel-transcript</artifactId>
-  <version>${version}</version>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>io.github.skywolfxp</groupId>
+    <artifactId>discord-jda-html-channel-transcript</artifactId>
+    <version>${version}</version>
+  </dependency>
+</dependencies>
+```
+
+![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=Gradle&logoColor=FFFFFF)
+
+```kts
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("io.github.skywolfxp:discord-jda-html-channel-transcript:${version}")
+}
 ```
 
 ## Work In-Progress
