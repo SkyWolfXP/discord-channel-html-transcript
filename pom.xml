@@ -4,25 +4,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.github.skywolfxp</groupId>
+  <groupId>io.github.skywolfxp</groupId>
   <artifactId>discord-jda-html-channel-transcript</artifactId>
   <version>1.0.0</version>
+
+  <description>
+    Java library for generating Discord-like HTML transcripts, Using Java Discord API &amp; Java Template Engine
+  </description>
+  <url>https://github.com/SkyWolfXP/discord-jda-html-channel-transcript</url>
+
+  <licenses>
+    <license>
+      <name>CC0-1.0 license</name>
+      <url>https://raw.githubusercontent.com/SkyWolfXP/discord-jda-html-channel-transcript/refs/heads/main/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
     <jte.version>3.1.16</jte.version>
   </properties>
-
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub SkyWolfXP Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/SkyWolfXP/discord-jda-html-channel-transcript</url>
-    </repository>
-  </distributionManagement>
 
   <dependencies>
     <dependency>
