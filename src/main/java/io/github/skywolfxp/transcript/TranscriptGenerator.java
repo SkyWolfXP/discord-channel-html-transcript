@@ -1,4 +1,4 @@
-package com.github.skywolfxp.transcript;
+package io.github.skywolfxp.transcript;
 
 import net.dv8tion.jda.api.entities.ISnowflake;
 import net.dv8tion.jda.api.entities.Message;
