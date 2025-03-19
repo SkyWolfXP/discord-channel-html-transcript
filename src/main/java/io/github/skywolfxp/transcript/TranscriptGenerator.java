@@ -5,7 +5,6 @@ import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -27,8 +26,6 @@ public class TranscriptGenerator {
  *
  * @throws IllegalArgumentException
  *         If the specified {@code textChannel} contains no messages
- * @throws IOException
- *         If an I/O error occurs during file creation.
  */
 public Transcript createTranscript(@NotNull Transcript transcript,
                                    @NotNull TextChannel textChannel) throws IllegalArgumentException {
