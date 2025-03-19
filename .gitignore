@@ -3,8 +3,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### Development Only ###
-tailwind.config.js
+### Development ###
+jte-classes
 
 ### IntelliJ IDEA ###
 .idea
