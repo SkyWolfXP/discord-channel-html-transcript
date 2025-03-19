@@ -1,0 +1,110 @@
+@import io.github.skywolfxp.transcript.TranscriptConstants
+@import io.github.skywolfxp.transcript.TranscriptUtils
+@import net.dv8tion.jda.api.entities.Message
+
+@param Message message
+
+@for(var embed : message.getEmbeds())
+  <article
+    style="border-left: 0.25rem solid ${"#%06X".formatted(0xFFFFFF & embed.getColorRaw())};"
+    class="embed"
+  >
+    <!-- Embed Author -->
+    @if(embed.getAuthor() != null)
+      <div class="embed__author embed--margin">
+        @if(embed.getAuthor().getIconUrl() != null)
+          <img
+            src="${embed.getAuthor().getIconUrl()}"
+            class="embed__author__icon"
+          />
+        @endif
+
+        @if(embed.getAuthor().getName() != null)
+          <span class="embed__author__name">
+            ${embed.getAuthor().getName()}
+          </span>
+        @endif
+      </div>
+    @endif
+
+    <!-- Embed Title -->
+    @if(embed.getTitle() != null)
+      <div class="embed__title embed--margin">
+        <span>${embed.getTitle()}</span>
+      </div>
+    @endif
+
+    <!-- Embed Description -->
+    @if(embed.getDescription() != null)
+      <div class="embed__description embed--margin">
+        <span>$unsafe{TranscriptUtils.parseMarkup(message.getGuild(), embed.getDescription())}</span>
+      </div>
+    @endif
+
+    <!-- Embed Fields -->
+    @if(!embed.getFields().isEmpty())
+      <div class="embed__fields">
+        <!-- Embed Field -->
+        @for(var field : embed.getFields())
+          <div class="embed__field">
+            @if(field.getName() != null)
+              <div class="embed__field__name">
+                <span>${field.getName()}</span>
+              </div>
+            @endif
+
+            @if(field.getValue() != null)
+              <div class="embed__field__value">
+                <span>${field.getValue()}</span>
+              </div>
+            @endif
+          </div>
+        @endfor
+      </div>
+    @endif
+
+    <!-- Embed Image -->
+    @if(embed.getImage() != null)
+      <div class="embed__image">
+        <img
+          src="${embed.getImage().getUrl()}"
+          class="embed__image__wrapper"
+        />
+      </div>
+    @endif
+
+    <!-- Embed Thumbnail -->
+    @if(embed.getThumbnail() != null)
+      <div class="embed__thumbnail">
+        <img
+          src="${embed.getThumbnail().getUrl()}"
+          class="embed__thumbnail__wrapper"
+        />
+      </div>
+    @endif
+
+    <!-- Embed Footer -->
+    @if(embed.getFooter() != null)
+      <div class="embed__footer embed--margin">
+        @if(embed.getFooter().getIconUrl() != null)
+          <img
+            src="${embed.getFooter().getIconUrl()}"
+            class="embed__footer__icon"
+          />
+        @endif
+
+        @if(embed.getFooter().getText() != null)
+          <span class="embed__footer__text">
+            <span>${embed.getFooter().getText()}</span>
+
+            @if(embed.getTimestamp() != null)
+              <span class="embed__footer__text__separator">•</span>
+
+              <span>${embed.getTimestamp().format(TranscriptConstants.DATE_SHORT)}</span>
+            @endif
+          </span>
+        @endif
+      </div>
+    @endif
+  </article>
+@endfor
