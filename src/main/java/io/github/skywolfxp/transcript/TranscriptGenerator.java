@@ -31,7 +31,7 @@ public class TranscriptGenerator {
  *         If an I/O error occurs during file creation.
  */
 public Transcript createTranscript(@NotNull Transcript transcript,
-                                   @NotNull TextChannel textChannel) throws IllegalArgumentException, IOException {
+                                   @NotNull TextChannel textChannel) throws IllegalArgumentException {
   List<Message> messages = textChannel.getIterableHistory().stream()
                                       .sorted(Comparator.comparing(ISnowflake::getTimeCreated)).toList();
   
@@ -43,7 +43,7 @@ public Transcript createTranscript(@NotNull Transcript transcript,
   params.put("textChannel", textChannel);
   params.put("messages", messages);
   
-  transcript.getTemplateEngine().render("template.jte", params, transcript.getUtf8ByteOutput());
+  transcript.getTemplateEngine().render("template/template.jte", params, transcript.getUtf8ByteOutput());
   
   return transcript;
 }
