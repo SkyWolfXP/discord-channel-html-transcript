@@ -100,7 +100,7 @@
     <!-- Message -->
     <li class="message">
       <!-- Reference -->
-      @template.fragments.reference(message = message)
+      @template.html.message.reference(message = message)
 
       <div class="author__avatar__container user-select-none ${(isDifferentAuthor || isDividerShown) ? "message--different-author" : null}">
         @if(isDifferentAuthor || isDividerShown)
@@ -146,7 +146,7 @@
           $unsafe{TranscriptUtils.parseMarkup(message.getGuild(), message.getContentRaw())}
 
           <!-- Attachments -->
-          @template.fragments.attachments(message = message)
+          @template.html.message.attachments(message = message)
 
           @if(message.getTimeEdited() != null)
             <span class="message__edited user-select-none">
@@ -159,13 +159,13 @@
         </div>
 
         <!-- Embeds -->
-        @template.fragments.embeds(message = message)
+        @template.html.message.embeds(message = message)
 
         <!-- ActionRows -->
-        @template.fragments.action-rows(message = message)
+        @template.html.message.actionrows(message = message)
 
         <!-- Reactions -->
-        @template.fragments.reactions(message = message)
+        @template.html.message.reactions(message = message)
       </div>
     </li>
     !{previousMessage = message;}
