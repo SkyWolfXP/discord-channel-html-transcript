@@ -7,6 +7,7 @@ import gg.jte.resolve.DirectoryCodeResolver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.CleanupMode;
 import org.junit.jupiter.api.io.TempDir;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -18,21 +19,23 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 
-import static io.github.skywolfxp.transcript.TranscriptTestUtils.mockTextChannel;
 import static org.mockito.Mockito.when;
 
 class TranscriptGeneratorTest {
-private AutoCloseable closeable;
+AutoCloseable autoCloseable;
 
 @Mock
-private Transcript transcript;
+Transcript transcript;
 
-@TempDir
-private Path tempDir;
+@TempDir(cleanup = CleanupMode.ALWAYS)
+Path tempFile;
+
+@TempDir(cleanup = CleanupMode.NEVER)
+Path file;
 
 @BeforeEach
 void setUp() {
-  closeable = MockitoAnnotations.openMocks(this);
+  autoCloseable = MockitoAnnotations.openMocks(this);
   
   TemplateEngine templateEngine =
           TemplateEngine.create(new DirectoryCodeResolver(Path.of("src/main/resources/template")), ContentType.Html);
@@ -44,23 +47,23 @@ void setUp() {
 
 @AfterEach
 void tearDown() throws Exception {
-  closeable.close();
+  autoCloseable.close();
 }
 
 @Test
 void createTranscript() throws IOException {
   HashMap<String, Object> params = new HashMap<>();
-  params.put("textChannel", mockTextChannel());
+  params.put("textChannel", TranscriptTestUtils.mockTextChannel());
   params.put("messages", TranscriptGeneratorTestUtils.createMessages());
   
   transcript.getTemplateEngine().render("test-template.jte", params, transcript.getUtf8ByteOutput());
   
-  try (FileOutputStream fileOutputStream = new FileOutputStream(tempDir.resolve("test-transcript.html").toFile())) {
+  try (FileOutputStream fileOutputStream = new FileOutputStream(tempFile.resolve("test-transcript.html").toFile())) {
     fileOutputStream.write(transcript.getUtf8ByteOutput().toByteArray());
   }
   
-  Files.copy(tempDir.resolve("test-transcript.html"),
-             Path.of("E:/SkyWolfXP/Downloads/transcript.html"),
+  Files.copy(tempFile.resolve("test-transcript.html"),
+             file.resolve("test-transcript-success.html"),
              StandardCopyOption.REPLACE_EXISTING);
 }
 }
