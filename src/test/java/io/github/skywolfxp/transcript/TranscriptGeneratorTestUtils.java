@@ -45,16 +45,21 @@ public static List<Message> createMessages() {
   Message message5 = new MessageMockBuilder(author1)
           .withAttachments(List.of(messageAttachmentImage, messageAttachmentFile))
           .withReactions(List.of(mockReactionUnicodeEmoji(), mockReactionCustomEmoji(), mockReactionRichCustomEmoji()))
-          .withReference(message2)
+          .withReference(message4)
+          .build();
+  
+  Message message6 = new MessageMockBuilder(author2)
+          .withContent("I'm a bot")
+          .withInteractionMetadata(mockInteraction(author1))
           .build();
   
   List<Message> messages = new ArrayList<>();
-  
   messages.add(message1);
   messages.add(message2);
   messages.add(message3);
   messages.add(message4);
   messages.add(message5);
+  messages.add(message6);
   
   return messages;
 }

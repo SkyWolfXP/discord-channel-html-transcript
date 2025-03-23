@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.emoji.*;
+import net.dv8tion.jda.api.interactions.InteractionType;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
@@ -106,6 +107,17 @@ public static MessageReaction mockReactionRichCustomEmoji() {
   when(reaction.getEmoji().asCustom().getImageUrl()).thenReturn(RICH_CUSTOM_EMOJI);
   
   return reaction;
+}
+
+@NotNull
+@SuppressWarnings("deprecation")
+public static Message.Interaction mockInteraction(@NotNull User user) {
+  Message.Interaction interaction = mock(Message.Interaction.class);
+  when(interaction.getUser()).thenReturn(user);
+  when(interaction.getType()).thenReturn(InteractionType.COMMAND);
+  when(interaction.getName()).thenReturn("command");
+  
+  return interaction;
 }
 
 @NotNull
