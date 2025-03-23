@@ -5,13 +5,13 @@
 
 @for(var attachment : message.getAttachments())
   @if(attachment.isImage())
-    <a
-      href="${attachment.getUrl()}"
-      class="attachment__image"
-    > <img
-        src="${attachment.getUrl()}"
+    <a href="${attachment.getUrl()}">
+      <img
         loading="lazy"
-      /> </a>
+        src="${attachment.getUrl()}"
+        class="attachment__image"
+      >
+    </a>
   @else
     <div class="attachment__file">
       <svg
