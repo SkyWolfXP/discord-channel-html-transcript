@@ -56,7 +56,7 @@ void createTranscript() throws IOException {
   params.put("textChannel", TranscriptTestUtils.mockTextChannel());
   params.put("messages", TranscriptGeneratorTestUtils.createMessages());
   
-  transcript.getTemplateEngine().render("test-template.jte", params, transcript.getUtf8ByteOutput());
+  transcript.getTemplateEngine().render("template-test.jte", params, transcript.getUtf8ByteOutput());
   
   try (FileOutputStream fileOutputStream = new FileOutputStream(tempFile.resolve("test-transcript.html").toFile())) {
     fileOutputStream.write(transcript.getUtf8ByteOutput().toByteArray());
