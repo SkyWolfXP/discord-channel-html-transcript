@@ -67,16 +67,23 @@ void createTranscript() throws IOException {
   embeds.add(createMessageEmbed());
   
   Message message1 = new MessageMockBuilder(author1)
-          .withContent(createMessageContentRaw())
-          .withAttachments(List.of(messageAttachmentImage, messageAttachmentFile))
+          .withContent("Message1")
           .build();
   
-  Message message2 = new MessageMockBuilder(author2)
+  Message message2 = new MessageMockBuilder(author1)
+          .withContent("Message2")
+          .build();
+  
+  Message message3 = new MessageMockBuilder(author1)
+          .withContent("Message3")
+          .build();
+  
+  Message message4 = new MessageMockBuilder(author2)
           .withEmbeds(embeds)
           .withActionRows(createActionRows())
           .build();
   
-  Message message3 = new MessageMockBuilder(author1)
+  Message message5 = new MessageMockBuilder(author1)
           .withAttachments(List.of(messageAttachmentImage, messageAttachmentFile))
           .withReactions(List.of(mockReactionUnicodeEmoji(), mockReactionCustomEmoji(), mockReactionRichCustomEmoji()))
           .withReference(message2)
@@ -84,7 +91,7 @@ void createTranscript() throws IOException {
   
   HashMap<String, Object> params = new HashMap<>();
   params.put("textChannel", mockTextChannel());
-  params.put("messages", List.of(message1, message2, message3));
+  params.put("messages", List.of(message1, message2, message3, message4, message5));
   
   transcript.getTemplateEngine().render("test-template.jte", params, transcript.getUtf8ByteOutput());
   
