@@ -58,12 +58,12 @@ void createTranscript() throws IOException {
   
   transcript.getTemplateEngine().render("template-test.jte", params, transcript.getUtf8ByteOutput());
   
-  try (FileOutputStream fileOutputStream = new FileOutputStream(tempFile.resolve("test-transcript.html").toFile())) {
+  try (FileOutputStream fileOutputStream = new FileOutputStream(tempFile.resolve("transcript-test.html").toFile())) {
     fileOutputStream.write(transcript.getUtf8ByteOutput().toByteArray());
   }
   
-  Files.copy(tempFile.resolve("test-transcript.html"),
-             file.resolve("test-transcript-success.html"),
+  Files.copy(tempFile.resolve("transcript-test.html"),
+             file.resolve("transcript-test-success.html"),
              StandardCopyOption.REPLACE_EXISTING);
 }
 }

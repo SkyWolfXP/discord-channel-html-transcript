@@ -40,7 +40,7 @@ public Transcript createTranscript(@NotNull Transcript transcript,
   params.put("textChannel", textChannel);
   params.put("messages", messages);
   
-  transcript.getTemplateEngine().render("template/template.jte", params, transcript.getUtf8ByteOutput());
+  transcript.getTemplateEngine().render("template.jte", params, transcript.getUtf8ByteOutput());
   
   return transcript;
 }

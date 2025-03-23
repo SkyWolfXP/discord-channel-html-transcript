@@ -70,7 +70,7 @@
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.5.18</version>
-      
+
       <scope>compile</scope>
     </dependency>
 
@@ -174,7 +174,7 @@
         <configuration>
           <contentType>Html</contentType>
           <binaryStaticContent>true</binaryStaticContent>
-          <sourceDirectory>${project.basedir}/src/main/resources</sourceDirectory>
+          <sourceDirectory>${project.basedir}/src/main/resources/template</sourceDirectory>
           <targetDirectory/>
         </configuration>
         <executions>
