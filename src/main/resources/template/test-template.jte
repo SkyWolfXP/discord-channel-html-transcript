@@ -3,7 +3,6 @@
 @import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
 @import io.github.skywolfxp.transcript.TranscriptConstants
 @import io.github.skywolfxp.transcript.TranscriptUtils
-@import net.dv8tion.jda.api.interactions.InteractionType
 
 @param List<Message> messages
 @param TextChannel textChannel
@@ -84,18 +83,10 @@
 
   @for(var message : messages)
     !{boolean isDifferentAuthor = !previousMessage.getAuthor().equals(message.getAuthor());}
-    !{boolean isDividerShown = false;}
+    !{boolean isDividerShown = messages.getFirst().equals(message) || (previousMessage.getTimeCreated().getDayOfYear() != message.getTimeCreated().getDayOfYear());}
 
     <!-- Divider -->
-    @if(messages.getFirst().equals(message) || (previousMessage.getTimeCreated().getDayOfYear() != message.getTimeCreated().getDayOfYear()))
-      !{isDividerShown = true;}
-
-      <div class="divider">
-        <span class="divider__content user-select-none">
-          ${message.getTimeCreated().format(TranscriptConstants.DATE_LONG)}
-        </span>
-      </div>
-    @endif
+    @template.html.channel.divider(message = message, isDividerShown = isDividerShown)
 
     <!-- Message -->
     <li class="message">
