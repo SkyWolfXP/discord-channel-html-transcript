@@ -1,10 +1,10 @@
-<h1 align="center">Discord JDA HTML Channel Transcript</h1>
+<h1 align="center">Discord Channel HTML Transcript</h1>
 
 <p align="center">
 <img alt="Maven Central" align="center" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-jda-html-channel-transcript?style=for-the-badge&label=Maven%20Central"></p>
 
-Java library to generate easily shareable, Discord-like offline HTML file of
-channels.\
+Java library for generating easily shareable, Discord-like offline HTML file of
+Discord channels.\
 Uses [**Java Discord API**](https://github.com/discord-jda/JDA) &
 [**Java Template Engine**](https://github.com/casid/jte/).
 
@@ -13,13 +13,16 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA) &
 - **Markdown**
   - Standard Markdown
   - Discord's Custom Markdown
+- **Attachments**
+  - Images
+  - Other Files
 - **Embeds**
 - **Action Rows**
   - Buttons
   - Select Menus
-- **Attachments**
-  - Images
-  - Other Files
+- **Reactions**
+- **Referenced Message**
+- **Referenced Command**
 
 ## Prerequisites
 
@@ -54,10 +57,9 @@ dependencies {
 
 ## Work In-Progress
 
-- **Transcript**
-  - [ ] Slash Command Replies
-  - [ ] System Messages
-  - [ ] Threads
+- [ ] System Messages
+- [ ] Thread Started Message
+- [ ] Masked Link Markdown
 
 ## Socials
 
