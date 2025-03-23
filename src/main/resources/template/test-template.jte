@@ -187,7 +187,7 @@
           id="${message.getId()}"
           class="message__content markup"
         >
-          $unsafe{TranscriptUtils.parseMarkup(textChannel.getGuild(), message.getContentRaw())}
+          $unsafe{TranscriptUtils.parseMarkup(message.getGuild(), message.getContentRaw())}
 
           <!-- Attachments -->
           @template.fragments.attachments(message = message)
