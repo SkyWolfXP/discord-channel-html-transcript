@@ -18,7 +18,7 @@
           </span>
         @endif
 
-        <div class="reaction__count">${reaction.getCount()}</div>
+        <span class="reaction__count">${reaction.getCount()}</span>
       </div>
     @endfor
   </div>
