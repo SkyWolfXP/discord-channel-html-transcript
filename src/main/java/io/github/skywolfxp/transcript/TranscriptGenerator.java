@@ -22,15 +22,15 @@ public class TranscriptGenerator {
  * @param textChannel
  *         The {@link TextChannel} for which to create the transcript.
  *
- * @return The {@link Transcript} populated with the generated {@link TextChannel} data.
+ * @return The {@code transcript} populated with {@code textChannel}'s messages.
  *
  * @throws IllegalArgumentException
- *         If the specified {@code textChannel} contains no messages
+ *         If the specified {@code textChannel} contains no messages.
  */
 public Transcript createTranscript(@NotNull Transcript transcript,
                                    @NotNull TextChannel textChannel) throws IllegalArgumentException {
-  List<Message> messages = textChannel.getIterableHistory().stream()
-                                      .sorted(Comparator.comparing(ISnowflake::getTimeCreated)).toList();
+  List<Message> messages =
+          textChannel.getIterableHistory().stream().sorted(Comparator.comparing(ISnowflake::getTimeCreated)).toList();
   
   if (messages.isEmpty()) {
     throw new IllegalArgumentException("TextChannel: %s contains no messages".formatted(textChannel.getName()));
