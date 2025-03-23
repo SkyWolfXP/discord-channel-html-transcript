@@ -1,20 +1,16 @@
 @import java.util.List
 @import net.dv8tion.jda.api.entities.Message
-@import net.dv8tion.jda.api.entities.emoji.Emoji
 @import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
-@import net.dv8tion.jda.api.interactions.components.buttons.Button
-@import net.dv8tion.jda.api.interactions.components.selections.SelectMenu
 @import io.github.skywolfxp.transcript.TranscriptConstants
 @import io.github.skywolfxp.transcript.TranscriptUtils
 
-@param List<Message> messages 
+@param List<Message> messages
 @param TextChannel textChannel
-@param String pathToStylesheet
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <title>#${textChannel.getName()} | ${textChannel.getGuild().getName()}</title>
 
   <!-- Google 'DM Sans' Font -->
@@ -81,55 +77,21 @@
   !{var previousMessage = messages.getFirst();}
 
   @for(var message : messages)
-    !{boolean isDifferentAuthor = (previousMessage == messages.getFirst()) || (!previousMessage.getAuthor().equals(message.getAuthor()));}
-    !{boolean isDividerShown = false;}
+    !{boolean isDifferentAuthor = !previousMessage.getAuthor().equals(message.getAuthor());}
+    !{boolean isDividerShown = messages.getFirst().equals(message) || (previousMessage.getTimeCreated().getDayOfYear() != message.getTimeCreated().getDayOfYear());}
 
     <!-- Divider -->
-    @if((previousMessage == messages.getFirst()) || (previousMessage.getTimeCreated().getDayOfYear() != message.getTimeCreated().getDayOfYear()))
-      !{isDividerShown = true;}
-
-      <div class="divider">
-        <span class="divider__content user-select-none">
-          ${message.getTimeCreated().format(TranscriptConstants.DATE_LONG)}
-        </span>
-      </div>
-    @endif
+    @template.html.channel.divider(message = message, isDividerShown = isDividerShown)
 
     <!-- Message -->
     <li class="message">
-      <!-- Message Reference -->
-      @if(message.getReferencedMessage() != null)
-        <div class="message__reference__spine"></div>
-
-        <div class="message__reference user-select-none">
-          <img
-            src="${message.getReferencedMessage().getAuthor().getEffectiveAvatarUrl()}"
-            class="message__reference__author__avatar author__avatar"
-          />
-
-          @if(message.getReferencedMessage().getAuthor().isBot())
-            <span class="author__tag">APP</span>
-          @endif
-
-          <a
-            href="https://discord.com/users/${message.getReferencedMessage().getAuthor().getId()}"
-            class="message__reference__author__name author__name"
-          >
-            ${message.getReferencedMessage().getAuthor().getEffectiveName()}
-          </a>
-
-          <a
-            href="#${message.getReferencedMessage().getId()}"
-            class="message__reference__preview user-select-none"
-          >
-            ${message.getReferencedMessage().getContentRaw()}
-          </a>
-        </div>
-      @endif
+      <!-- Reference -->
+      @template.html.message.reference(message = message)
 
       <div class="author__avatar__container user-select-none ${(isDifferentAuthor || isDividerShown) ? "message--different-author" : null}">
         @if(isDifferentAuthor || isDividerShown)
           <img
+            loading="lazy"
             src="${message.getAuthor().getEffectiveAvatarUrl()}"
             class="author__avatar"
           />
@@ -167,49 +129,10 @@
           id="${message.getId()}"
           class="message__content markup"
         >
-          $unsafe{TranscriptUtils.parseMarkup(textChannel.getGuild(), message.getContentRaw())}
+          $unsafe{TranscriptUtils.parseMarkup(message.getGuild(), message.getContentRaw())}
 
-          <!-- Attachment -->
-          @for(var attachment : message.getAttachments())
-            @if(attachment.isImage())
-              <a
-                href="${attachment.getUrl()}"
-                class="attachment__image"
-              > <img
-                  src="${attachment.getUrl()}"
-                  loading="lazy"
-                /> </a>
-            @else
-              <div class="attachment__file">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 72 96"
-                  width="30"
-                  height="40"
-                >
-                  <path
-                    d="m72 29.3v60.3c0 2.24 0 3.36-.44 4.22-.38.74-1 1.36-1.74 1.74-.86.44-1.98.44-4.22.44h-59.2c-2.24 0-3.36 0-4.22-.44-.74-.38-1.36-1-1.74-1.74-.44-.86-.44-1.98-.44-4.22v-83.2c0-2.24 0-3.36.44-4.22.38-.74 1-1.36 1.74-1.74.86-.44 1.98-.44 4.22-.44h36.3c1.96 0 2.94 0 3.86.22.5.12.98.28 1.44.5v16.88c0 2.24 0 3.36.44 4.22.38.74 1 1.36 1.74 1.74.86.44 1.98.44 4.22.44h16.88c.22.46.38.94.5 1.44.22.92.22 1.9.22 3.86z"
-                    fill="#d3d6fd"
-                  />
-                  <path
-                    d="m68.26 20.26c1.38 1.38 2.06 2.06 2.56 2.88.18.28.32.56.46.86h-16.88c-2.24 0-3.36 0-4.22-.44-.74-.38-1.36-1-1.74-1.74-.44-.86-.44-1.98-.44-4.22v-16.880029c.3.14.58.28.86.459999.82.5 1.5 1.18 2.88 2.56z"
-                    fill="#939bf9"
-                  />
-                </svg>
-
-                <div class="attachment__file__wrapper">
-                  <a
-                    href="${attachment.getUrl()}"
-                    class="attachment__file__name"
-                  >
-                    ${attachment.getFileName()}
-                  </a>
-
-                  <span class="attachment__file__size">${TranscriptUtils.formatBytes(attachment.getSize())}</span>
-                </div>
-              </div>
-            @endif
-          @endfor
+          <!-- Attachments -->
+          @template.html.message.attachments(message = message)
 
           @if(message.getTimeEdited() != null)
             <span class="message__edited user-select-none">
@@ -221,178 +144,14 @@
           @endif
         </div>
 
-        <!-- Embed -->
-        @for(var embed : message.getEmbeds())
-          <article
-            style="border-left: 0.25rem solid ${"#%06X".formatted(0xFFFFFF & embed.getColorRaw())};"
-            class="embed"
-          >
-            <!-- Embed Author -->
-            @if(embed.getAuthor() != null)
-              <div class="embed__author embed--margin">
-                @if(embed.getAuthor().getIconUrl() != null)
-                  <img
-                    src="${embed.getAuthor().getIconUrl()}"
-                    class="embed__author__icon"
-                  />
-                @endif
+        <!-- Embeds -->
+        @template.html.message.embeds(message = message)
 
-                @if(embed.getAuthor().getName() != null)
-                  <span class="embed__author__name">
-                    ${embed.getAuthor().getName()}
-                  </span>
-                @endif
-              </div>
-            @endif
+        <!-- ActionRows -->
+        @template.html.message.actionrows(message = message)
 
-            <!-- Embed Title -->
-            @if(embed.getTitle() != null)
-              <div class="embed__title embed--margin">
-                <span>${embed.getTitle()}</span>
-              </div>
-            @endif
-
-            <!-- Embed Description -->
-            @if(embed.getDescription() != null)
-              <div class="embed__description embed--margin">
-                <span>$unsafe{TranscriptUtils.parseMarkup(textChannel.getGuild(), embed.getDescription())}</span>
-              </div>
-            @endif
-
-            <!-- Embed Fields -->
-            @if(!embed.getFields().isEmpty())
-              <div class="embed__fields">
-                <!-- Embed Field -->
-                @for(var field : embed.getFields())
-                  <div class="embed__field">
-                    @if(field.getName() != null)
-                      <div class="embed__field__name">
-                        <span>${field.getName()}</span>
-                      </div>
-                    @endif
-
-                    @if(field.getValue() != null)
-                      <div class="embed__field__value">
-                        <span>${field.getValue()}</span>
-                      </div>
-                    @endif
-                  </div>
-                @endfor
-              </div>
-            @endif
-
-            <!-- Embed Image -->
-            @if(embed.getImage() != null)
-              <div class="embed__image">
-                <img
-                  src="${embed.getImage().getUrl()}"
-                  class="embed__image__wrapper"
-                />
-              </div>
-            @endif
-
-            <!-- Embed Thumbnail -->
-            @if(embed.getThumbnail() != null)
-              <div class="embed__thumbnail">
-                <img
-                  src="${embed.getThumbnail().getUrl()}"
-                  class="embed__thumbnail__wrapper"
-                />
-              </div>
-            @endif
-
-            <!-- Embed Footer -->
-            @if(embed.getFooter() != null)
-              <div class="embed__footer embed--margin">
-                @if(embed.getFooter().getIconUrl() != null)
-                  <img
-                    src="${embed.getFooter().getIconUrl()}"
-                    class="embed__footer__icon"
-                  />
-                @endif
-
-                @if(embed.getFooter().getText() != null)
-                  <span class="embed__footer__text">
-                    <span>${embed.getFooter().getText()}</span>
-
-                    @if(embed.getTimestamp() != null)
-                      <span class="embed__footer__text__separator">•</span>
-
-                      <span>${embed.getTimestamp().format(TranscriptConstants.DATE_SHORT)}</span>
-                    @endif
-                  </span>
-                @endif
-              </div>
-            @endif
-          </article>
-        @endfor
-
-        <!-- ActionRow -->
-        @if(!message.getActionRows().isEmpty())
-          <div class="action-rows user-select-none">
-            @for(var actionRow : message.getActionRows())
-              <div class="action-row">
-                @for(var component : actionRow.getComponents())
-                  <!-- ActionRow Button -->
-                  @if(component instanceof Button button)
-                    <a
-                      href="${button.isDisabled() ? null : button.getUrl()}"
-                      role="button"
-                      aria-disabled="${button.isDisabled()}"
-                      class="action-row__button action-row__button--${button.getStyle().name().toLowerCase()}"
-                    >
-                      @if(button.getEmoji() != null)
-                        @if(button.getEmoji().getType().equals(Emoji.Type.CUSTOM))
-                          <img
-                            src="${button.getEmoji().asCustom().getImageUrl()}"
-                            class="action-row__button__emoji"
-                          />
-                        @else
-                          <span class="action-row__button__emoji">
-                            &#x${button.getEmoji().asUnicode().getAsCodepoints().replace("U+", "")};
-                          </span>
-                        @endif
-                      @endif
-
-                      <span>${button.getLabel()}</span>
-
-                      @if(button.getUrl() != null)
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="action-row__button__link-icon"
-                        >
-                          <path d="M15 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V4.41l-4.3 4.3a1 1 0 1 1-1.4-1.42L19.58 3H16a1 1 0 0 1-1-1Z" />
-                          <path d="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-6a1 1 0 1 0-2 0v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1 1 0 1 0 0-2H5Z" />
-                        </svg>
-                      @endif
-                    </a>
-                  @endif
-
-                  <!-- ActionRow Select -->
-                  @if(component instanceof SelectMenu select)
-                    <div class="action-row__select">
-                      <span class="action-row__select__text">Make a selection</span>
-
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width="18"
-                        height="18"
-                        fill="currentColor"
-                      >
-                        <path d="M5.3 9.3a1 1 0 0 1 1.4 0l5.3 5.29 5.3-5.3a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-1.4 0l-6-6a1 1 0 0 1 0-1.42Z" />
-                      </svg>
-                    </div>
-                  @endif
-                @endfor
-              </div>
-            @endfor
-          </div>
-        @endif
+        <!-- Reactions -->
+        @template.html.message.reactions(message = message)
       </div>
     </li>
     !{previousMessage = message;}
