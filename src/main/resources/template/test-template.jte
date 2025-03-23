@@ -99,12 +99,13 @@
 
     <!-- Message -->
     <li class="message">
-      <!-- Message Reference -->
+      <!-- Reference Message -->
       @if(message.getReferencedMessage() != null)
         <div class="reference__spine"></div>
 
         <div class="reference user-select-none">
           <img
+            loading="lazy"
             src="${message.getReferencedMessage().getAuthor().getEffectiveAvatarUrl()}"
             class="reference__author__avatar"
           />
@@ -122,7 +123,7 @@
 
           <a
             href="#${message.getReferencedMessage().getId()}"
-            class="reference__message__context user-select-none"
+            class="reference__message__context"
           >
             @if(message.getReferencedMessage().getContentRaw().isEmpty())
               <i>Click to see attachment</i>
@@ -148,7 +149,8 @@
         </div>
       @endif
 
-      @if(message.getInteraction() != null && message.getInteraction().getType().equals(InteractionType.COMMAND))
+      <!-- Reference Command -->
+      @if((message.getInteraction() != null) && message.getInteraction().getType().equals(InteractionType.COMMAND))
         <div class="reference__spine"></div>
 
         <div class="reference user-select-none">
@@ -186,6 +188,7 @@
       <div class="author__avatar__container user-select-none ${(isDifferentAuthor || isDividerShown) ? "message--different-author" : null}">
         @if(isDifferentAuthor || isDividerShown)
           <img
+            loading="lazy"
             src="${message.getAuthor().getEffectiveAvatarUrl()}"
             class="author__avatar"
           />
