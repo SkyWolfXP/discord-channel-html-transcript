@@ -4,9 +4,6 @@ import gg.jte.ContentType;
 import gg.jte.TemplateEngine;
 import gg.jte.output.Utf8ByteOutput;
 import gg.jte.resolve.DirectoryCodeResolver;
-import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageEmbed;
-import net.dv8tion.jda.api.entities.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,17 +16,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import static io.github.skywolfxp.transcript.TranscriptTestUtils.*;
+import static io.github.skywolfxp.transcript.TranscriptTestUtils.mockTextChannel;
 import static org.mockito.Mockito.when;
 
 class TranscriptGeneratorTest {
-private final static String AVATAR_URL_1 = "https://cdn.discordapp.com/avatars/545902760453996546/8d3a7164a3ed3e0f1a500e776fa07963.png";
-private final static String AVATAR_URL_2 = "https://cdn.discordapp.com/avatars/1093684128437764136/812a2439d19dabf4da5e6f211b3eeb88.png";
-
 private AutoCloseable closeable;
 
 @Mock
@@ -57,41 +49,9 @@ void tearDown() throws Exception {
 
 @Test
 void createTranscript() throws IOException {
-  User author1 = mockAuthor("545902760453996546", "SkyWolfXP", AVATAR_URL_1, false);
-  User author2 = mockAuthor("974748803305455627", "V0RT3X™", AVATAR_URL_2, true);
-  
-  Message.Attachment messageAttachmentImage = mockAttachment(true);
-  Message.Attachment messageAttachmentFile = mockAttachment(false);
-  
-  List<MessageEmbed> embeds = new ArrayList<>();
-  embeds.add(createMessageEmbed());
-  
-  Message message1 = new MessageMockBuilder(author1)
-          .withContent("Message1")
-          .build();
-  
-  Message message2 = new MessageMockBuilder(author1)
-          .withContent("Message2")
-          .build();
-  
-  Message message3 = new MessageMockBuilder(author1)
-          .withContent("Message3")
-          .build();
-  
-  Message message4 = new MessageMockBuilder(author2)
-          .withEmbeds(embeds)
-          .withActionRows(createActionRows())
-          .build();
-  
-  Message message5 = new MessageMockBuilder(author1)
-          .withAttachments(List.of(messageAttachmentImage, messageAttachmentFile))
-          .withReactions(List.of(mockReactionUnicodeEmoji(), mockReactionCustomEmoji(), mockReactionRichCustomEmoji()))
-          .withReference(message2)
-          .build();
-  
   HashMap<String, Object> params = new HashMap<>();
   params.put("textChannel", mockTextChannel());
-  params.put("messages", List.of(message1, message2, message3, message4, message5));
+  params.put("messages", TranscriptGeneratorTestUtils.createMessages());
   
   transcript.getTemplateEngine().render("test-template.jte", params, transcript.getUtf8ByteOutput());
   
