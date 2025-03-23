@@ -188,6 +188,9 @@
 
         <!-- ActionRows -->
         @template.fragments.action-rows(message = message)
+
+        <!-- Reactions -->
+        @template.fragments.reactions(message = message)
       </div>
     </li>
     !{previousMessage = message;}

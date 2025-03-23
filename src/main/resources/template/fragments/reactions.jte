@@ -1,0 +1,25 @@
+@import net.dv8tion.jda.api.entities.Message
+@import net.dv8tion.jda.api.entities.emoji.Emoji
+
+@param Message message
+
+@if(!message.getReactions().isEmpty())
+  <div class="reactions">
+    @for(var reaction : message.getReactions())
+      <div class="reaction user-select-none">
+        @if(reaction.getEmoji().getType().equals(Emoji.Type.CUSTOM))
+          <img
+            src="${reaction.getEmoji().asCustom().getImageUrl()+"&animated=true"}"
+            class="reaction__emoji"
+          />
+        @elseif(reaction.getEmoji().getType().equals(Emoji.Type.UNICODE))
+          <span class="reaction__emoji">
+            &#x${reaction.getEmoji().asUnicode().getAsCodepoints().replace("U+", "")};
+          </span>
+        @endif
+
+        <div class="reaction__count">${reaction.getCount()}</div>
+      </div>
+    @endfor
+  </div>
+@endif
