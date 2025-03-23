@@ -1,9 +1,6 @@
 package io.github.skywolfxp.transcript;
 
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageEmbed;
-import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import org.jetbrains.annotations.NotNull;
 import org.mockito.Mockito;
@@ -46,6 +43,11 @@ public MessageMockBuilder withEmbeds(List<MessageEmbed> embeds) {
 
 public MessageMockBuilder withActionRows(List<ActionRow> actionRows) {
   when(message.getActionRows()).thenReturn(actionRows);
+  return this;
+}
+
+public MessageMockBuilder withReactions(List<MessageReaction> messageReactions) {
+  when(message.getReactions()).thenReturn(messageReactions);
   return this;
 }
 

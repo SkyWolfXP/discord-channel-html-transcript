@@ -1,12 +1,9 @@
 package io.github.skywolfxp.transcript;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageEmbed;
-import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
-import net.dv8tion.jda.api.entities.emoji.Emoji;
+import net.dv8tion.jda.api.entities.emoji.*;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
@@ -21,8 +18,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public final class TranscriptTestUtils {
-private final static String AVATAR_URL_1 = "https://cdn.discordapp.com/avatars/545902760453996546/8d3a7164a3ed3e0f1a500e776fa07963.png";
-private final static String AVATAR_URL_2 = "https://cdn.discordapp.com/avatars/1093684128437764136/812a2439d19dabf4da5e6f211b3eeb88.png";
+private final static String AVATAR_URL_1 = "https://cdn.discordapp.com/avatars/545902760453996546/8d3a7164a3ed3e0f1a500e776fa07963.png?";
+private final static String AVATAR_URL_2 = "https://cdn.discordapp.com/avatars/1093684128437764136/812a2439d19dabf4da5e6f211b3eeb88.png?";
+private final static String RICH_CUSTOM_EMOJI = "https://cdn.discordapp.com/emojis/1353135081476329523.webp?";
 
 @NotNull
 public static Guild mockGuild() {
@@ -63,6 +61,51 @@ public static Message.Attachment mockAttachment(boolean isImage) {
   when(attachment.getFileName()).thenReturn(isImage ? "image.png" : "file.txt");
   
   return attachment;
+}
+
+@NotNull
+public static MessageReaction mockReactionUnicodeEmoji() {
+  EmojiUnion emojiUnion = mock(EmojiUnion.class);
+  UnicodeEmoji unicodeEmoji = mock(UnicodeEmoji.class);
+  MessageReaction reaction = mock(MessageReaction.class);
+  
+  when(reaction.getCount()).thenReturn(69);
+  when(reaction.getEmoji()).thenReturn(emojiUnion);
+  when(reaction.getEmoji().getType()).thenReturn(Emoji.Type.UNICODE);
+  when(reaction.getEmoji().asUnicode()).thenReturn(unicodeEmoji);
+  when(reaction.getEmoji().asUnicode().getAsCodepoints()).thenReturn("U+1F49A");
+  
+  return reaction;
+}
+
+@NotNull
+public static MessageReaction mockReactionCustomEmoji() {
+  EmojiUnion emojiUnion = mock(EmojiUnion.class);
+  CustomEmoji customEmoji = mock(CustomEmoji.class);
+  MessageReaction reaction = mock(MessageReaction.class);
+  
+  when(reaction.getCount()).thenReturn(69);
+  when(reaction.getEmoji()).thenReturn(emojiUnion);
+  when(reaction.getEmoji().getType()).thenReturn(Emoji.Type.CUSTOM);
+  when(reaction.getEmoji().asCustom()).thenReturn(customEmoji);
+  when(reaction.getEmoji().asCustom().getImageUrl()).thenReturn(AVATAR_URL_2);
+  
+  return reaction;
+}
+
+@NotNull
+public static MessageReaction mockReactionRichCustomEmoji() {
+  EmojiUnion emojiUnion = mock(EmojiUnion.class);
+  RichCustomEmoji richCustomEmoji = mock(RichCustomEmoji.class);
+  MessageReaction reaction = mock(MessageReaction.class);
+  
+  when(reaction.getCount()).thenReturn(69);
+  when(reaction.getEmoji()).thenReturn(emojiUnion);
+  when(reaction.getEmoji().getType()).thenReturn(Emoji.Type.CUSTOM);
+  when(reaction.getEmoji().asCustom()).thenReturn(richCustomEmoji);
+  when(reaction.getEmoji().asCustom().getImageUrl()).thenReturn(RICH_CUSTOM_EMOJI);
+  
+  return reaction;
 }
 
 @NotNull
