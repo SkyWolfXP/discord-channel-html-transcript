@@ -5,19 +5,19 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.skywolfxp</groupId>
-  <artifactId>discord-jda-html-channel-transcript</artifactId>
+  <artifactId>discord-channel-html-transcript</artifactId>
   <version>1.0.0</version>
 
-  <name>discord-jda-html-channel-transcript</name>
+  <name>discord-channel-html-transcript</name>
   <description>
     Java library for generating Discord-like HTML transcripts, Using Java Discord API &amp; Java Template Engine
   </description>
-  <url>https://github.com/SkyWolfXP/discord-jda-html-channel-transcript</url>
+  <url>https://github.com/SkyWolfXP/discord-channel-html-transcript</url>
 
   <licenses>
     <license>
       <name>CC0-1.0 license</name>
-      <url>https://raw.githubusercontent.com/SkyWolfXP/discord-jda-html-channel-transcript/refs/heads/main/LICENSE</url>
+      <url>https://raw.githubusercontent.com/SkyWolfXP/discord-channel-html-transcript/refs/heads/main/LICENSE</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -26,17 +26,15 @@
     <developer>
       <name>SkyWolfXP</name>
       <email>skywolfxp@gmail.com</email>
-      <organization>SkyWolfXP</organization>
+      <organization>Github</organization>
       <organizationUrl>https://github.com/SkyWolfXP</organizationUrl>
     </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/SkyWolfXP/discord-jda-html-channel-transcript.git</connection>
-    <developerConnection>
-      scm:git:ssh://git@github.com:SkyWolfXP/discord-jda-html-channel-transcript.git
-    </developerConnection>
-    <url>https://github.com/SkyWolfXP/discord-jda-html-channel-transcript</url>
+    <connection>scm:git:git://github.com/SkyWolfXP/discord-channel-html-transcript.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:SkyWolfXP/discord-channel-html-transcript.git</developerConnection>
+    <url>https://github.com/SkyWolfXP/discord-channel-html-transcript</url>
   </scm>
 
   <properties>
@@ -77,7 +75,7 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.12.1</version>
+      <version>5.13.0-M2</version>
 
       <scope>test</scope>
     </dependency>
