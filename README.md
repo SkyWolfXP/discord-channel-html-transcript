@@ -1,25 +1,24 @@
 <h1 align="center">Discord Channel HTML Transcript</h1>
 
 <p align="center">
-<img alt="Maven Central" align="center" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-jda-html-channel-transcript?style=for-the-badge&label=Maven%20Central"></p>
+<img alt="Maven Central" align="center" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&label=Maven%20Central"/>
+</p>
 
-Java library for generating easily shareable, Discord-like offline HTML file of
-Discord channels.\
-Uses [**Java Discord API**](https://github.com/discord-jda/JDA) &
-[**Java Template Engine**](https://github.com/casid/jte/).
+Java library for generating easily shareable, Discord-like offline HTML file of Discord channels.\
+Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Template Engine**](https://github.com/casid/jte/).
 
 ## Features
 
 - **Markdown**
-  - Standard Markdown
-  - Discord's Custom Markdown
+    - Standard Markdown
+    - [Discord's Custom Markdown](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline)
 - **Attachments**
-  - Images
-  - Other Files
+    - Images
+    - Other Files
 - **Embeds**
 - **Action Rows**
-  - Buttons
-  - Select Menus
+    - Buttons
+    - Select Menus
 - **Reactions**
 - **Referenced Message**
 - **Referenced Command**
@@ -37,7 +36,7 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA) &
 <dependencies>
   <dependency>
     <groupId>io.github.skywolfxp</groupId>
-    <artifactId>discord-jda-html-channel-transcript</artifactId>
+    <artifactId>discord-channel-html-transcript</artifactId>
     <version>${version}</version>
   </dependency>
 </dependencies>
@@ -51,15 +50,24 @@ repositories {
 }
 
 dependencies {
-    implementation("io.github.skywolfxp:discord-jda-html-channel-transcript:${version}")
+    implementation("io.github.skywolfxp:discord-channel-html-transcript:${version}")
 }
 ```
+
+## Testing & Development
+
+1. Run `TranscriptGeneratorTest`, This will create a `discord-channel-html-transcript` directory under:
+    - **Windows:** `%USERPROFILE%\AppData\Local\Temp`
+    - **macOS:** `/tmp`
+    - **Linux:** `/tmp`
+2. Copy the CSS styles
+   of [style.jte](https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/src/main/resources/template/css/style.jte)
+   to `%temp%/discord-channel-html-transcript/style.css` and experiment with your own CSS!
 
 ## Work In-Progress
 
 - [ ] System Messages
 - [ ] Thread Started Message
-- [ ] Masked Link Markdown
 
 ## Socials
 
