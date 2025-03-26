@@ -19,7 +19,7 @@ Java library for generating easily shareable, Discord-like offline HTML file of 
 Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Template Engine**](https://github.com/casid/jte/).
 
 <details>
-  <summary><strong>Table of Contents</strong></summary>
+  <summary>Table of Contents</summary>
   <ol>
     <li><a href="#features">Features</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
@@ -28,12 +28,6 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Templa
     <li><a href="#socials">Socials</a></li>
   </ol>
 </details>
-
-
-<h2 style="display: flex;">
-    <p align="left">Features</p>
-    <p align="right">Back To Top</p>
-</h2>
 
 ## Features
 
