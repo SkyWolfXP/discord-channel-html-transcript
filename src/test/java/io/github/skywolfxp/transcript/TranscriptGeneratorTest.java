@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 
 class TranscriptGeneratorTest {
 private static final Path OUTPUT_DIR = Path.of(System.getProperty("java.io.tmpdir"))
-                                           .resolve("discord-jda-html-channel-transcript");
+                                           .resolve("discord-channel-html-transcript");
 
 AutoCloseable autoCloseable;
 
