@@ -7,7 +7,6 @@ import gg.jte.resolve.DirectoryCodeResolver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.CleanupMode;
 import org.junit.jupiter.api.io.TempDir;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -22,27 +21,28 @@ import java.util.HashMap;
 import static org.mockito.Mockito.when;
 
 class TranscriptGeneratorTest {
+private static final Path OUTPUT_DIR = Path.of(System.getProperty("java.io.tmpdir"))
+                                           .resolve("discord-jda-html-channel-transcript");
+
 AutoCloseable autoCloseable;
 
 @Mock
 Transcript transcript;
 
-@TempDir(cleanup = CleanupMode.ALWAYS)
-Path tempFile;
-
-@TempDir(cleanup = CleanupMode.NEVER)
-Path file;
+@TempDir
+Path tempDir;
 
 @BeforeEach
-void setUp() {
+void setUp() throws IOException {
   autoCloseable = MockitoAnnotations.openMocks(this);
   
-  TemplateEngine templateEngine =
-          TemplateEngine.create(new DirectoryCodeResolver(Path.of("src/main/resources/template")), ContentType.Html);
-  Utf8ByteOutput utf8ByteOutput = new Utf8ByteOutput();
+  when(transcript.getTemplateEngine()).thenReturn(
+          TemplateEngine.create(new DirectoryCodeResolver(Path.of("src/main/resources/template")), ContentType.Html));
+  when(transcript.getUtf8ByteOutput()).thenReturn(new Utf8ByteOutput());
   
-  when(transcript.getTemplateEngine()).thenReturn(templateEngine);
-  when(transcript.getUtf8ByteOutput()).thenReturn(utf8ByteOutput);
+  if (!Files.exists(OUTPUT_DIR)) {
+    Files.createDirectories(OUTPUT_DIR);
+  }
 }
 
 @AfterEach
@@ -58,12 +58,12 @@ void createTranscript() throws IOException {
   
   transcript.getTemplateEngine().render("template-test.jte", params, transcript.getUtf8ByteOutput());
   
-  try (FileOutputStream fileOutputStream = new FileOutputStream(tempFile.resolve("transcript-test.html").toFile())) {
+  try (FileOutputStream fileOutputStream = new FileOutputStream(tempDir.resolve("transcript-test.html").toFile())) {
     fileOutputStream.write(transcript.getUtf8ByteOutput().toByteArray());
   }
   
-  Files.copy(tempFile.resolve("transcript-test.html"),
-             file.resolve("transcript-test-success.html"),
+  Files.copy(tempDir.resolve("transcript-test.html"),
+             OUTPUT_DIR.resolve("transcript.html"),
              StandardCopyOption.REPLACE_EXISTING);
 }
 }

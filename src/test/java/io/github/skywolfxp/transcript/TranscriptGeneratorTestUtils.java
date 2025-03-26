@@ -30,7 +30,7 @@ public static List<Message> createMessages() {
           .build();
   
   Message message2 = new MessageMockBuilder(author1)
-          .withContent("Library")
+          .withContent("[Library](https://github.com/SkyWolfXP/discord-jda-html-channel-transcript)")
           .build();
   
   Message message3 = new MessageMockBuilder(author1)
