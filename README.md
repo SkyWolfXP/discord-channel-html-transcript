@@ -31,7 +31,7 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Templa
 
 
 <h2 style="display: flex;">
-    <p>Features</p>
+    <p align="left">Features</p>
     <p align="right">Back To Top</p>
 </h2>
 
