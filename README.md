@@ -1,13 +1,33 @@
 <h1 align="center">Discord Channel HTML Transcript</h1>
 
 <p align="center">
-<img alt="Maven Central" align="center" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&label=Maven%20Central"/>
+    <img
+        alt="Maven Central Version"
+        src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&color=%2300c800"
+    >
+
+    <img
+        alt="GitHub License"
+        src="https://img.shields.io/github/license/SkyWolfXP/discord-channel-html-transcript?style=for-the-badge&color=%2300c800"
+    >
+
 </p>
 
 Java library for generating easily shareable, Discord-like offline HTML file of Discord channels.\
 Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Template Engine**](https://github.com/casid/jte/).
 
-## Features
+<details>
+  <summary><strong>Table of Contents</strong></summary>
+  <ol>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#testing--development">Testing & Development</a></li>
+    <li><a href="#socials">Socials</a></li>
+  </ol>
+</details>
+
+## ✨ Features
 
 - **Markdown**
     - Standard Markdown
@@ -27,7 +47,7 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Templa
 
 - **Java 21+**
 
-## Installation
+## ⚙️ Installation
 
 ![Apache Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=Apache+Maven&logoColor=FFFFFF)
 
@@ -54,7 +74,7 @@ dependencies {
 }
 ```
 
-## Testing & Development
+## 🧪 Testing & Development
 
 1. Run `TranscriptGeneratorTest`, This will create a `discord-channel-html-transcript` directory under:
     - **Windows:** `%USERPROFILE%\AppData\Local\Temp`
