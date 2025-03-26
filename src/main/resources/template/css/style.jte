@@ -632,6 +632,14 @@
   }
   
   /* Discord Markup */
+  .markup__link {
+    color: var(--text-link);
+  }
+  
+  .markup__link:hover {
+    text-decoration: underline;
+  }
+  
   .markup__code-block {
     display: block;
     overflow-x: auto;
