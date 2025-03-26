@@ -30,8 +30,8 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Templa
 </details>
 
 
-<h2>
-<span style="display: flex; flex-grow: 1; align-items: center;">Features</span> 
+<h2 style="display: flex; align-items: center;">
+<span style="flex-grow: 1;">Features</span> 
 <span>Back To Top</span>
 </h2>
 
