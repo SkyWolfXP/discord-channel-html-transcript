@@ -5,12 +5,10 @@
         alt="Maven Central Version"
         src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&color=%2300c800"
     >
-
     <img
         alt="GitHub License"
         src="https://img.shields.io/github/license/SkyWolfXP/discord-channel-html-transcript?style=for-the-badge&color=%2300c800"
     >
-
 </p>
 
 Java library for generating easily shareable, Discord-like offline HTML file of Discord channels.\
