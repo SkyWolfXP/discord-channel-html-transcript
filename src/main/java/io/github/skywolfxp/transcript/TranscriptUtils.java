@@ -16,8 +16,11 @@ private final static Pattern UNDERLINE = Pattern.compile("__(?!_)(.+?)__");
 private final static Pattern BOLD = Pattern.compile("\\*\\*(?!\\*)(.+?)\\*\\*");
 private final static Pattern ITALIC = Pattern.compile("[*_](?![*_])(.+?)[_*]");
 private final static Pattern STRIKE_THROUGH = Pattern.compile("~~(.+?)~~");
+private final static Pattern LINK = Pattern.compile("\\[(.*)]\\((\\S*)\\)");
+
 private final static Pattern CODE_BLOCK = Pattern.compile("```\\n(.*)\\n```", Pattern.DOTALL);
 private final static Pattern CODE_INLINE = Pattern.compile("`(?!`)(.*)`");
+
 private final static Pattern HEADER_1 = Pattern.compile("^#\\s(.*)(?=<br>)|^#\\s(.*)", Pattern.MULTILINE);
 private final static Pattern HEADER_2 = Pattern.compile("^##\\s(.*)(?=<br>)|^##\\s(.*)", Pattern.MULTILINE);
 private final static Pattern HEADER_3 = Pattern.compile("^###\\s(.*)(?=<br>)|^###\\s(.*)", Pattern.MULTILINE);
@@ -54,6 +57,12 @@ public static String parseMarkup(@NotNull Guild guild, @NotNull String message) 
   matcher = STRIKE_THROUGH.matcher(escapedMessage);
   while (matcher.find()) {
     escapedMessage = escapedMessage.replace(matcher.group(), "<s>%s</s>".formatted(matcher.group(1)));
+  }
+  
+  matcher = LINK.matcher(escapedMessage);
+  while (matcher.find()) {
+    escapedMessage = escapedMessage.replace(
+            matcher.group(), "<a href=\"%s\" class=\"markup__link\">%s</a>".formatted(matcher.group(2), matcher.group(1)));
   }
   
   matcher = HEADER_1.matcher(escapedMessage);
@@ -161,6 +170,7 @@ public static String parseMarkup(@NotNull Guild guild, @NotNull String message) 
                 <path fill-rule="evenodd"
                       d="M10.99 3.16A1 1 0 1 0 9 2.84L8.15 8H4a1 1 0 0 0 0 2h3.82l-.67 4H3a1 1 0 1 0 0 2h3.82l-.8 4.84a1 1 0 0 0 1.97.32L8.85 16h4.97l-.8 4.84a1 1 0 0 0 1.97.32l.86-5.16H20a1 1 0 1 0 0-2h-3.82l.67-4H21a1 1 0 1 0 0-2h-3.82l.8-4.84a1 1 0 1 0-1.97-.32L15.15 8h-4.97l.8-4.84ZM14.15 14l.67-4H9.85l-.67 4h4.97Z"/>
               </svg>
+            
               <span class="mention__channel-name">%s</span>
             </a>
             """.formatted(guild.getId(), channelId, channel.getName()));
