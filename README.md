@@ -1,18 +1,8 @@
 <h1 align="center">Discord Channel HTML Transcript</h1>
 
 <p align="center">
-    <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript">
-        <img
-            alt="Maven Central Version"
-            src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&color=%2300c800"
-        >
-    </a>
-    <a href="https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE">
-        <img
-            alt="GitHub License"
-            src="https://img.shields.io/github/license/SkyWolfXP/discord-channel-html-transcript?style=for-the-badge&color=%2300c800"
-        >
-    </a>
+    <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&color=%2300c800&label=Maven%20Central"></a>
+    <a href="https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/SkyWolfXP/discord-channel-html-transcript?style=for-the-badge&color=%2300c800"></a>
 </p>
 
 Java library for generating easily shareable, Discord-like offline HTML file of Discord channels.\
