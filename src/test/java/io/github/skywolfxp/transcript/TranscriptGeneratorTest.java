@@ -21,10 +21,9 @@ import java.util.HashMap;
 import static org.mockito.Mockito.when;
 
 class TranscriptGeneratorTest {
-private static final Path OUTPUT_DIR = Path.of(System.getProperty("java.io.tmpdir"))
-                                           .resolve("discord-channel-html-transcript");
-
 AutoCloseable autoCloseable;
+
+Path outputDir = Path.of(System.getProperty("java.io.tmpdir")).resolve("discord-channel-html-transcript");
 
 @Mock
 Transcript transcript;
@@ -40,8 +39,8 @@ void setUp() throws IOException {
           TemplateEngine.create(new DirectoryCodeResolver(Path.of("src/main/resources/template")), ContentType.Html));
   when(transcript.getUtf8ByteOutput()).thenReturn(new Utf8ByteOutput());
   
-  if (!Files.exists(OUTPUT_DIR)) {
-    Files.createDirectories(OUTPUT_DIR);
+  if (!Files.exists(outputDir)) {
+    Files.createDirectories(outputDir);
   }
 }
 
@@ -63,7 +62,7 @@ void createTranscript() throws IOException {
   }
   
   Files.copy(tempDir.resolve("transcript-test.html"),
-             OUTPUT_DIR.resolve("transcript.html"),
+             outputDir.resolve("transcript.html"),
              StandardCopyOption.REPLACE_EXISTING);
 }
 }
