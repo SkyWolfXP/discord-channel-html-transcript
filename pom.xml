@@ -33,7 +33,9 @@
 
   <scm>
     <connection>scm:git:git://github.com/SkyWolfXP/discord-channel-html-transcript.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com:SkyWolfXP/discord-channel-html-transcript.git</developerConnection>
+    <developerConnection>
+      scm:git:ssh://git@github.com:SkyWolfXP/discord-channel-html-transcript.git
+    </developerConnection>
     <url>https://github.com/SkyWolfXP/discord-channel-html-transcript</url>
   </scm>
 
@@ -41,14 +43,14 @@
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jte.version>3.1.16</jte.version>
+    <jte.version>3.2.0</jte.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>net.dv8tion</groupId>
       <artifactId>JDA</artifactId>
-      <version>5.3.0</version>
+      <version>5.3.2</version>
 
       <exclusions>
         <exclusion>
@@ -83,7 +85,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>5.16.1</version>
+      <version>5.17.0</version>
 
       <scope>test</scope>
     </dependency>
