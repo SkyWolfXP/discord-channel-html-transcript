@@ -20,68 +20,70 @@ import java.io.IOException;
  * Engine</a> for HTML generation.
  */
 public final class Transcript {
-private final TemplateEngine templateEngine;
-private final Utf8ByteOutput utf8ByteOutput;
+  private final TemplateEngine templateEngine;
+  private final Utf8ByteOutput utf8ByteOutput;
 
-/**
- * Constructs {@link Transcript} with {@link TemplateEngine} precompiled template configuration.
- */
-public Transcript() {
-  this.templateEngine = TemplateEngine.createPrecompiled(ContentType.Html);
-  this.utf8ByteOutput = new Utf8ByteOutput();
-  
-  this.templateEngine.setBinaryStaticContent(true);
-  this.templateEngine.setTrimControlStructures(true);
-}
+  /**
+   * Constructs {@link Transcript} with {@link TemplateEngine} precompiled template configuration.
+   */
+  public Transcript() {
+    this.templateEngine = TemplateEngine.createPrecompiled(ContentType.Html);
+    this.utf8ByteOutput = new Utf8ByteOutput();
 
-/**
- * Constructs {@link Transcript} with provided {@link TemplateEngine}.
- *
- * @param templateEngine
- *         The {@link TemplateEngine} to use for Transcript generation.
- */
-public Transcript(@NotNull TemplateEngine templateEngine) {
-  this.templateEngine = templateEngine;
-  this.utf8ByteOutput = new Utf8ByteOutput();
-}
-
-@NotNull
-public TemplateEngine getTemplateEngine() {
-  return templateEngine;
-}
-
-@NotNull
-public Utf8ByteOutput getUtf8ByteOutput() {
-  return utf8ByteOutput;
-}
-
-/**
- * Converts the output to a {@link FileUpload} to directly send anywhere on Discord.
- *
- * <br><br>The {@code fileName} is appended with {@code .html} if it is not suffixed with it.
- *
- * @param fileName
- *         The file name to use for the generated Transcript.
- *
- * @return A {@link FileUpload} of the generated Transcript.
- */
-@NotNull
-public FileUpload toFileUpload(@NotNull String fileName) {
-  return FileUpload.fromData(utf8ByteOutput.toByteArray(), fileName.endsWith(".html") ? fileName : fileName + ".html");
-}
-
-/**
- * Converts the output to a specified {@link File}.
- *
- * @param file
- *         The {@link File} to which the transcript should be written.
- *
- * @throws IOException
- *         If an I/O error occurs during file writing.
- */
-public void toFile(@NotNull File file) throws IOException {
-  try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {
-    fileOutputStream.write(utf8ByteOutput.toByteArray());
+    this.templateEngine.setBinaryStaticContent(true);
+    this.templateEngine.setTrimControlStructures(true);
   }
-}
+
+  /**
+   * Constructs {@link Transcript} with provided {@link TemplateEngine}.
+   *
+   * @param templateEngine
+   *   The {@link TemplateEngine} to use for Transcript generation.
+   */
+  public Transcript(@NotNull TemplateEngine templateEngine) {
+    this.templateEngine = templateEngine;
+    this.utf8ByteOutput = new Utf8ByteOutput();
+  }
+
+  @NotNull
+  public TemplateEngine getTemplateEngine() {
+    return templateEngine;
+  }
+
+  @NotNull
+  public Utf8ByteOutput getUtf8ByteOutput() {
+    return utf8ByteOutput;
+  }
+
+  /**
+   * Converts the output to a {@link FileUpload} to directly send anywhere on Discord.
+   *
+   * <br><br>The {@code fileName} is appended with {@code .html} if it is not suffixed with it.
+   *
+   * @param fileName
+   *   The file name to use for the generated Transcript.
+   *
+   * @return A {@link FileUpload} of the generated Transcript.
+   */
+  @NotNull
+  public FileUpload toFileUpload(@NotNull String fileName) {
+    return FileUpload.fromData(
+      utf8ByteOutput.toByteArray(),
+      fileName.endsWith(".html") ? fileName : fileName + ".html");
+  }
+
+  /**
+   * Converts the output to a specified {@link File}.
+   *
+   * @param file
+   *   The {@link File} to which the transcript should be written.
+   *
+   * @throws IOException
+   *   If an I/O error occurs during file writing.
+   */
+  public void toFile(@NotNull File file) throws IOException {
+    try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {
+      fileOutputStream.write(utf8ByteOutput.toByteArray());
+    }
+  }
 }
