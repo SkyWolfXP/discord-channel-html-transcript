@@ -18,17 +18,18 @@ import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public final class TranscriptTestUtils {
-  private final static String AVATAR_URL_1 =
-    "https://cdn.discordapp.com/avatars/545902760453996546/8d3a7164a3ed3e0f1a500e776fa07963.png?";
-  private final static String AVATAR_URL_2 =
+public class TranscriptTestUtils {
+  protected final static String AVATAR_URL_USER =
+    "https://cdn.discordapp.com/avatars/545902760453996546/28198a269015c4aca5e25d63bc9b1a47.png?";
+  protected final static String AVATAR_URL_BOT =
     "https://cdn.discordapp.com/avatars/1093684128437764136/812a2439d19dabf4da5e6f211b3eeb88.png?";
-  private final static String RICH_CUSTOM_EMOJI = "https://cdn.discordapp.com/emojis/1353135081476329523.webp?";
+  protected final static String RICH_CUSTOM_EMOJI = "https://cdn.discordapp.com/emojis/1353135081476329523.webp?";
 
   @NotNull
   public static Guild mockGuild() {
     Guild guild = mock(Guild.class);
-    when(guild.getName()).thenReturn("test-guild");
+    when(guild.getName()).thenReturn("Test Guild");
+    when(guild.getIconUrl()).thenReturn(AVATAR_URL_BOT);
 
     return guild;
   }
@@ -36,7 +37,7 @@ public final class TranscriptTestUtils {
   @NotNull
   public static TextChannel mockTextChannel() {
     TextChannel textChannel = mock(TextChannel.class);
-    when(textChannel.getName()).thenReturn("test-channel");
+    when(textChannel.getName()).thenReturn("discord-channel-html-transcript");
 
     Guild guild = mockGuild();
     when(textChannel.getGuild()).thenReturn(guild);
@@ -59,7 +60,7 @@ public final class TranscriptTestUtils {
   public static Message.Attachment mockAttachment(boolean isImage) {
     Message.Attachment attachment = mock(Message.Attachment.class);
     when(attachment.isImage()).thenReturn(isImage);
-    when(attachment.getUrl()).thenReturn(AVATAR_URL_1);
+    when(attachment.getUrl()).thenReturn(AVATAR_URL_USER);
     when(attachment.getSize()).thenReturn(420);
     when(attachment.getFileName()).thenReturn(isImage ? "image.png" : "file.txt");
 
@@ -91,7 +92,7 @@ public final class TranscriptTestUtils {
     when(reaction.getEmoji()).thenReturn(emojiUnion);
     when(reaction.getEmoji().getType()).thenReturn(Emoji.Type.CUSTOM);
     when(reaction.getEmoji().asCustom()).thenReturn(customEmoji);
-    when(reaction.getEmoji().asCustom().getImageUrl()).thenReturn(AVATAR_URL_2);
+    when(reaction.getEmoji().asCustom().getImageUrl()).thenReturn(AVATAR_URL_BOT);
 
     return reaction;
   }
@@ -140,14 +141,14 @@ public final class TranscriptTestUtils {
   @NotNull
   public static MessageEmbed createMessageEmbed() {
     return new EmbedBuilder()
-      .setAuthor("Author", AVATAR_URL_1)
+      .setAuthor("Author", AVATAR_URL_USER)
       .setTitle("Title")
       .setDescription("Description")
       .addField("Field Name #1", "Field Value #1", false)
       .addField("Field Name #2", "Field Value #2", false)
-      .setImage(AVATAR_URL_1)
-      .setThumbnail(AVATAR_URL_1)
-      .setFooter("Footer", AVATAR_URL_1)
+      .setImage(AVATAR_URL_USER)
+      .setThumbnail(AVATAR_URL_USER)
+      .setFooter("Footer", AVATAR_URL_USER)
       .setTimestamp(Instant.now())
       .setColor(Color.GREEN)
       .build();

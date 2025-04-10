@@ -11,15 +11,10 @@ import java.util.List;
 import static io.github.skywolfxp.transcript.TranscriptTestUtils.*;
 
 public class TranscriptGeneratorTestUtils {
-  private final static String AVATAR_URL_1 =
-    "https://cdn.discordapp.com/avatars/545902760453996546/28198a269015c4aca5e25d63bc9b1a47.png";
-  private final static String AVATAR_URL_2 =
-    "https://cdn.discordapp.com/avatars/1093684128437764136/812a2439d19dabf4da5e6f211b3eeb88.png";
-
   @NotNull
   public static List<Message> createMessages() {
-    User author1 = mockAuthor("545902760453996546", "SkyWolfXP", AVATAR_URL_1, false);
-    User author2 = mockAuthor("974748803305455627", "V0RT3X™", AVATAR_URL_2, true);
+    User author1 = mockAuthor("545902760453996546", "SkyWolfXP", AVATAR_URL_USER, false);
+    User author2 = mockAuthor("974748803305455627", "V0RT3X™", AVATAR_URL_BOT, true);
 
     Message.Attachment messageAttachmentImage = mockAttachment(true);
     Message.Attachment messageAttachmentFile = mockAttachment(false);
