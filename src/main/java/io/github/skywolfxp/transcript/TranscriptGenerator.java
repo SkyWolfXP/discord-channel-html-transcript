@@ -49,6 +49,7 @@ public final class TranscriptGenerator {
     HashMap<String, Object> params = new HashMap<>();
     params.put("textChannel", textChannel);
     params.put("messages", messages);
+    params.put("isDev", false);
 
     transcript.getTemplateEngine().render("template.jte", params, transcript.getUtf8ByteOutput());
 

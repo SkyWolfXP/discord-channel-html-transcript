@@ -54,15 +54,16 @@ class TranscriptGeneratorTest {
     HashMap<String, Object> params = new HashMap<>();
     params.put("textChannel", TranscriptTestUtils.mockTextChannel());
     params.put("messages", TranscriptGeneratorTestUtils.createMessages());
+    params.put("isDev", true);
 
-    transcript.getTemplateEngine().render("template-test.jte", params, transcript.getUtf8ByteOutput());
+    transcript.getTemplateEngine().render("template.jte", params, transcript.getUtf8ByteOutput());
 
-    try (FileOutputStream fileOutputStream = new FileOutputStream(tempDir.resolve("transcript-test.html").toFile())) {
+    try (FileOutputStream fileOutputStream = new FileOutputStream(tempDir.resolve("transcript-temp.html").toFile())) {
       fileOutputStream.write(transcript.getUtf8ByteOutput().toByteArray());
     }
 
     Files.copy(
-      tempDir.resolve("transcript-test.html"), outputDir.resolve("transcript.html"),
+      tempDir.resolve("transcript-temp.html"), outputDir.resolve("transcript.html"),
       StandardCopyOption.REPLACE_EXISTING);
   }
 }

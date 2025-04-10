@@ -6,6 +6,7 @@
 
 @param List<Message> messages
 @param TextChannel textChannel
+@param boolean isDev
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,40 +38,55 @@
 
   <!-- Your Stylesheet -->
   @template.css.reset()
-  @template.css.style()
+
+  @if(isDev)
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./style.css"
+    />
+  @else
+    @template.css.style()
+  @endif
 </head>
 
 <body>
-<!-- Channel Header -->
-<section class="channel__header">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="channel__header__channel-icon"
-  >
-    <path
-      fill-rule="evenodd"
-      d="M10.99 3.16A1 1 0 1 0 9 2.84L8.15 8H4a1 1 0 0 0 0 2h3.82l-.67 4H3a1 1 0 1 0 0 2h3.82l-.8 4.84a1 1 0 0 0 1.97.32L8.85 16h4.97l-.8 4.84a1 1 0 0 0 1.97.32l.86-5.16H20a1 1 0 1 0 0-2h-3.82l.67-4H21a1 1 0 1 0 0-2h-3.82l.8-4.84a1 1 0 1 0-1.97-.32L15.15 8h-4.97l.8-4.84ZM14.15 14l.67-4H9.85l-.67 4h4.97Z"
-    />
-  </svg>
+<!-- Header -->
+<div class="header">
+  <!-- Bar -->
+  <div class="bar">
+    <div class="bar__guild">
+      <img
+        src="${textChannel.getGuild().getIconUrl()}"
+        alt="Server Icon"
+        loading="lazy"
+        class="bar__guild__icon"
+      />
 
-  <h1 class="channel__header__title user-select-none">${textChannel.getName()}</h1>
+      <div class="bar__guild__name">
+        ${textChannel.getGuild().getName()}
+      </div>
+    </div>
+  </div>
 
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="channel__header__help-icon"
-  >
-    <circle
-      cx="12"
-      cy="12"
-      r="10"
-      fill="transparent"
-    />
-    <path
-      fill-rule="evenodd"
-      d="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm-.28-16c-.98 0-1.81.47-2.27 1.14A1 1 0 1 1 7.8 7.01 4.73 4.73 0 0 1 11.72 5c2.5 0 4.65 1.88 4.65 4.38 0 2.1-1.54 3.77-3.52 4.24l.14 1a1 1 0 0 1-1.98.27l-.28-2a1 1 0 0 1 .99-1.14c1.54 0 2.65-1.14 2.65-2.38 0-1.23-1.1-2.37-2.65-2.37ZM13 17.88a1.13 1.13 0 1 1-2.25 0 1.13 1.13 0 0 1 2.25 0Z"
-    />
-  </svg>
-</section>
+  <!-- Channel Header -->
+  <section class="channel__header">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      role="img"
+      class="channel__header__icon"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M10.99 3.16A1 1 0 1 0 9 2.84L8.15 8H4a1 1 0 0 0 0 2h3.82l-.67 4H3a1 1 0 1 0 0 2h3.82l-.8 4.84a1 1 0 0 0 1.97.32L8.85 16h4.97l-.8 4.84a1 1 0 0 0 1.97.32l.86-5.16H20a1 1 0 1 0 0-2h-3.82l.67-4H21a1 1 0 1 0 0-2h-3.82l.8-4.84a1 1 0 1 0-1.97-.32L15.15 8h-4.97l.8-4.84ZM14.15 14l.67-4H9.85l-.67 4h4.97Z"
+      />
+    </svg>
+
+    <h1 class="channel__header__title user-select-none">${textChannel.getName()}</h1>
+  </section>
+</div>
 
 <!-- Channel Content -->
 <ol class="channel__content">
@@ -91,8 +107,9 @@
       <div class="author__avatar__container user-select-none ${(isDifferentAuthor || isDividerShown) ? "message--different-author" : null}">
         @if(isDifferentAuthor || isDividerShown)
           <img
-            loading="lazy"
             src="${message.getAuthor().getEffectiveAvatarUrl()}"
+            alt="Author Avatar"
+            loading="lazy"
             class="author__avatar"
           />
         @else
