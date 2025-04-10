@@ -1,8 +1,37 @@
 <style>
+  :root {
+    --background-primary: #313338;
+    --background-secondary: #2b2d31;
+    --background-tertiary: #1e1f22;
+    --background-brand: #5865f2;
+    --text-normal: hsl(240 3.226% 93.922%);
+    --text-muted: #949ba4;
+    --channel-header-icon: #80848e;
+    --header-primary: #f2f3f5;
+    --mention-background-color: var(--background-brand);
+    --mention-background-color-hover: #5865f270;
+    --button-primary-background: var(--background-brand);
+    --button-primary-background-hover: #4752c4;
+    --button-secondary-background: #4e5058;
+    --button-secondary-background-hover: #6d6f78;
+    --button-success-background: #248045;
+    --button-success-background-hover: #1a6334;
+    --button-danger-background: #da373c;
+    --button-danger-background-hover: #a12829;
+    --interactive-normal: #b5bac1;
+    --text-link: #00aafc;
+    --channel-icon: hsl(233.333 3.734% 52.745%);
+    --border-subtle: hsl(240 4% 60.784% /0.12156862745098039);
+    --header-bar-background: hsl(240 7.143% 10.98%);
+    --background-base-lower: hsl(240 7.143% 10.98%);
+    --background-base-lowest: hsl(240 5.263% 7.451%);
+    font-family: "DM Sans", "sans-serif";
+  }
+
   body {
     display: flex;
     flex-direction: column;
-    background-color: var(--background-primary);
+    background-color: var(--background-base-lower);
   }
 
   /* Divider */
@@ -13,64 +42,97 @@
     z-index: 1;
     height: 0;
     margin: 1.5rem 0.875rem 0.5rem 1rem;
-    border-top: thin solid #4e50587a;
+    border-top: thin solid var(--border-subtle);
   }
 
   .divider__content {
     display: block;
     padding: 0.125rem 0.25rem;
-    background-color: var(--background-primary);
+    background-color: var(--background-base-lower);
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 0.8125rem;
     color: var(--text-muted);
   }
 
+  /* Header */
+  .header {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    color: var(--text-normal);
+  }
+
+  /* Bar */
+  .bar {
+    display: flex;
+    justify-content: center;
+    height: 34px;
+    background-color: var(--background-base-lowest);
+  }
+
+  .bar__guild {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    bottom: 0;
+    max-width: 50vw;
+  }
+
+  .bar__guild__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .bar__guild__name {
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   /* Channel Header */
   .channel__header {
     display: flex;
     align-items: center;
-    position: fixed;
-    z-index: 100;
-    width: 100%;
-    min-height: 3rem;
+    height: 46px;
     padding: 0.5rem;
-    background-color: var(--background-primary);
-    border-bottom-width: 1px;
-    border-bottom-color: #262626;
+    background-color: var(--header-bar-background);
+    border-bottom: 1px solid var(--border-subtle);
     font-size: 16px;
     line-height: 20px;
   }
 
-  .channel__header__channel-icon {
-    fill: var(--channel-header-icon);
-    width: 24px;
-    height: 24px;
+  .channel__header__icon {
+    fill: var(--channel-icon);
+    width: 20px;
+    height: 20px;
     margin: 0 0.5rem;
   }
 
   .channel__header__title {
     flex-grow: 1;
     overflow: hidden;
-    font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-normal);
   }
 
-  .channel__header__help-icon {
+  /* .channel__header__help-icon {
     fill: var(--channel-header-icon);
     width: 24px;
     height: 24px;
     margin: 0 0.5rem;
   }
-
+  
   .channel__header__help-icon:hover {
     fill: var(--interactive-normal);
     cursor: pointer;
-  }
+  } */
 
   .channel__content {
-    margin-top: 3rem;
     padding: 0 1rem 1.5rem 1rem;
   }
 
@@ -264,7 +326,7 @@
   }
 
   .timestamp {
-    box-shadow: 0px 2px 20px #00000050;
+    box-shadow: 0 2px 20px #00000050;
     display: none;
     align-self: self-end;
     position: absolute;
@@ -735,29 +797,5 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-  }
-
-  :root {
-    --background-primary: #313338;
-    --background-secondary: #2b2d31;
-    --background-tertiary: #1e1f22;
-    --background-brand: #5865f2;
-    --text-normal: #dbdee1;
-    --text-muted: #949ba4;
-    --channel-header-icon: #80848e;
-    --header-primary: #f2f3f5;
-    --mention-background-color: var(--background-brand);
-    --mention-background-color-hover: #5865f270;
-    --button-primary-background: var(--background-brand);
-    --button-primary-background-hover: #4752c4;
-    --button-secondary-background: #4e5058;
-    --button-secondary-background-hover: #6d6f78;
-    --button-success-background: #248045;
-    --button-success-background-hover: #1a6334;
-    --button-danger-background: #da373c;
-    --button-danger-background-hover: #a12829;
-    --interactive-normal: #b5bac1;
-    --text-link: #00aafc;
-    font-family: "DM Sans", "sans-serif";
   }
 </style>
