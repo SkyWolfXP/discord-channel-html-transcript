@@ -16,9 +16,19 @@ import java.util.List;
  * as HTML using the <a href="https://github.com/casid/jte/">Java Template Engine</a>.
  */
 public final class TranscriptGenerator {
+  private final Transcript transcript;
+
   /**
+   * Constructs {@link TranscriptGenerator} with provided {@link Transcript}.
+   *
    * @param transcript
    *   The {@link Transcript} to generate the transcript into.
+   */
+  public TranscriptGenerator(@NotNull Transcript transcript) {
+    this.transcript = transcript;
+  }
+
+  /**
    * @param textChannel
    *   The {@link TextChannel} for which to create the transcript.
    *
@@ -28,11 +38,10 @@ public final class TranscriptGenerator {
    *   If the specified {@code textChannel} contains no messages.
    */
   @NotNull
-  public Transcript createTranscript(@NotNull Transcript transcript, @NotNull TextChannel textChannel)
-    throws IllegalArgumentException {
+  public Transcript createTranscript(@NotNull TextChannel textChannel) throws IllegalArgumentException {
     List<Message> messages =
       textChannel.getIterableHistory().stream().sorted(Comparator.comparing(ISnowflake::getTimeCreated)).toList();
-    
+
     if (messages.isEmpty()) {
       throw new IllegalArgumentException("TextChannel: %s contains no messages".formatted(textChannel.getName()));
     }
