@@ -10,21 +10,23 @@
     --header-primary: #f2f3f5;
     --mention-background-color: var(--background-brand);
     --mention-background-color-hover: #5865f270;
-    --button-primary-background: var(--background-brand);
-    --button-primary-background-hover: #4752c4;
-    --button-secondary-background: #4e5058;
-    --button-secondary-background-hover: #6d6f78;
-    --button-success-background: #248045;
-    --button-success-background-hover: #1a6334;
-    --button-danger-background: #da373c;
-    --button-danger-background-hover: #a12829;
+    --button-brand-background: hsl(234.935 85.556% 64.706%);
+    --button-brand-background-hover: hsl(233.115 49.194% 51.373% /1);
+    --button-secondary-background: hsl(240 4% 60.784% /0.12156862745098039);
+    --button-secondary-background-hover: hsl(240 4% 60.784% /0.2);
+    --button-positive-background: hsl(145.97 100% 26.275% /1);
+    --button-positive-background-hover: hsl(145.082 93.846% 25.49% /1);
+    --button-danger-background: hsl(355.636 64.706% 50% /1);
+    --button-danger-background-hover: hsl(356.143 63.636% 43.137% /1);
     --interactive-normal: #b5bac1;
     --text-link: #00aafc;
-    --channel-icon: hsl(233.333 3.734% 52.745%);
+    --channel-icon: hsl(233.333 3.734% 52.745% /1);
     --border-subtle: hsl(240 4% 60.784% /0.12156862745098039);
-    --header-bar-background: hsl(240 7.143% 10.98%);
-    --background-base-lower: hsl(240 7.143% 10.98%);
-    --background-base-lowest: hsl(240 5.263% 7.451%);
+    --header-bar-background: hsl(240 7.143% 10.98% /1);
+    --background-base-lower: hsl(240 7.143% 10.98% /1);
+    --background-base-lowest: hsl(240 5.263% 7.451% /1);
+    --background-code: hsl(234.935 85.556% 64.706% /0.0784313725490196);
+    --boder-normal: hsl(240 4% 60.784% /0.2);
     font-family: "DM Sans", "sans-serif";
   }
 
@@ -558,12 +560,13 @@
   .action-row__button {
     display: flex;
     align-items: center;
+    width: auto;
     min-width: 60px;
     height: 32px;
     padding: 0.125rem 1rem;
     transition: background-color 170ms ease;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 8px;
     font-size: 14px;
     line-height: 1.375rem;
   }
@@ -581,11 +584,11 @@
   }
 
   .action-row__button--primary {
-    background-color: var(--button-primary-background);
+    background-color: var(--button-brand-background);
   }
 
   .action-row__button--primary:not([aria-disabled]):hover {
-    background-color: var(--button-primary-background-hover);
+    background-color: var(--button-brand-background-hover);
   }
 
   .action-row__button--secondary {
@@ -597,11 +600,11 @@
   }
 
   .action-row__button--success {
-    background-color: var(--button-success-background);
+    background-color: var(--button-positive-background);
   }
 
   .action-row__button--success:not([aria-disabled]):hover {
-    background-color: var(--button-success-background-hover);
+    background-color: var(--button-positive-background-hover);
   }
 
   .action-row__button--danger {
@@ -708,8 +711,8 @@
     max-width: 90%;
     margin-top: 0.375rem;
     padding: 0.5em;
-    background: var(--background-secondary);
-    border: 1px solid var(--background-tertiary);
+    background: var(--background-code);
+    border: 1px solid var(--boder-normal);
     border-radius: 4px;
     font-size: 0.875rem;
     line-height: 1.125rem;
@@ -722,8 +725,8 @@
 
   .markup__code-inline {
     padding: 0 0.2em;
-    background: var(--background-secondary);
-    border: 1px solid var(--background-tertiary);
+    background: var(--background-code);
+    border: 1px solid var(--boder-normal);
     border-radius: 4px;
     font-size: 0.875rem;
     line-height: 1.125rem;
