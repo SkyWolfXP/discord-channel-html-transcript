@@ -7,13 +7,14 @@
   @if(attachment.isImage())
     <a href="${attachment.getUrl()}">
       <img
-        loading="lazy"
         src="${attachment.getUrl()}"
+        alt="Image"
+        loading="lazy"
         class="attachment__image"
       >
     </a>
   @else
-    <div class="attachment__file">
+    <div class="attachment__file media__container">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 72 96"

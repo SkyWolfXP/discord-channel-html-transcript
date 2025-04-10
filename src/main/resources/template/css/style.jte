@@ -1,11 +1,9 @@
 <style>
   :root {
-    --background-primary: #313338;
-    --background-secondary: #2b2d31;
     --background-tertiary: #1e1f22;
-    --background-brand: #5865f2;
+    --background-brand: hsl(234.935 85.556% 64.706% /1);
     --text-normal: hsl(240 3.226% 93.922%);
-    --text-muted: #949ba4;
+    --text-muted: hsl(232.5 3.883% 59.608% /1);
     --channel-header-icon: #80848e;
     --header-primary: #f2f3f5;
     --mention-background-color: var(--background-brand);
@@ -19,14 +17,18 @@
     --button-danger-background: hsl(355.636 64.706% 50% /1);
     --button-danger-background-hover: hsl(356.143 63.636% 43.137% /1);
     --interactive-normal: #b5bac1;
-    --text-link: #00aafc;
+    --text-link: hsl(212.561 84.536% 61.961% /1);
     --channel-icon: hsl(233.333 3.734% 52.745% /1);
     --border-subtle: hsl(240 4% 60.784% /0.12156862745098039);
     --header-bar-background: hsl(240 7.143% 10.98% /1);
     --background-base-lower: hsl(240 7.143% 10.98% /1);
     --background-base-lowest: hsl(240 5.263% 7.451% /1);
     --background-code: hsl(234.935 85.556% 64.706% /0.0784313725490196);
-    --boder-normal: hsl(240 4% 60.784% /0.2);
+    --border-normal: hsl(240 4% 60.784% /0.2);
+    --background-surface-high: hsl(240 6.494% 15.098% /1);
+    --background-mod-subtle: hsl(240 4% 60.784% /0.0784313725490196);
+    --background-mod-normal: hsl(240 4% 60.784% /0.1607843137254902);
+    --border-faint: hsl(240 4% 60.784% /0.0392156862745098);
     font-family: "DM Sans", "sans-serif";
   }
 
@@ -122,17 +124,17 @@
     color: var(--text-normal);
   }
 
-  /* .channel__header__help-icon {
+  .channel__header__help-icon {
     fill: var(--channel-header-icon);
     width: 24px;
     height: 24px;
     margin: 0 0.5rem;
   }
-  
+
   .channel__header__help-icon:hover {
     fill: var(--interactive-normal);
     cursor: pointer;
-  } */
+  }
 
   .channel__content {
     padding: 0 1rem 1.5rem 1rem;
@@ -362,8 +364,8 @@
     max-width: 100%;
     margin-top: 0.5rem;
     padding: 1rem;
-    background-color: var(--background-secondary);
-    border: 1px solid #232428;
+    background-color: var(--background-surface-high);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
   }
 
@@ -400,9 +402,10 @@
     grid-template-columns: auto min-content;
     overflow: hidden;
     max-width: max-content;
-    padding: 0.5rem 1rem 1rem 0.75rem;
-    background: var(--background-secondary);
-    border-left: 0.25rem solid var(--background-tertiary);
+    padding: 0.125rem 1rem 1rem 0.75rem;
+    background: var(--background-surface-high);
+    border: 1px solid var(--border-subtle);
+    border-left: 0.25rem solid var(--border-normal);
     border-radius: 0.25rem;
   }
 
@@ -662,15 +665,15 @@
     padding: 0.125rem 0.375rem;
     transition: none 0.1s ease;
     transition-property: background-color, border-color;
-    background: var(--background-secondary);
+    background: var(--background-mod-subtle);
     cursor: pointer;
     border: 0.0625rem solid transparent;
     border-radius: 0.5rem;
   }
 
   .reaction:hover {
-    background-color: var(--background-primary);
-    border-color: rgba(255, 255, 255, 0.2);
+    background-color: var(--background-mod-normal);
+    border-color: var(--border-faint);
   }
 
   .reaction__emoji {
@@ -696,6 +699,10 @@
     height: 100%;
   }
 
+  .media__container {
+    margin-top: 0.5rem;
+  }
+
   /* Discord Markup */
   .markup__link {
     color: var(--text-link);
@@ -712,7 +719,7 @@
     margin-top: 0.375rem;
     padding: 0.5em;
     background: var(--background-code);
-    border: 1px solid var(--boder-normal);
+    border: 1px solid var(--border-normal);
     border-radius: 4px;
     font-size: 0.875rem;
     line-height: 1.125rem;
@@ -726,7 +733,7 @@
   .markup__code-inline {
     padding: 0 0.2em;
     background: var(--background-code);
-    border: 1px solid var(--boder-normal);
+    border: 1px solid var(--border-normal);
     border-radius: 4px;
     font-size: 0.875rem;
     line-height: 1.125rem;
