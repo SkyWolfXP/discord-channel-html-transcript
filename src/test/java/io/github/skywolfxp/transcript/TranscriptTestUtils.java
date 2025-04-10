@@ -124,21 +124,6 @@ public class TranscriptTestUtils {
   }
 
   @NotNull
-  public static String createMessageContentRaw() {
-    return """
-           **Bold**
-           *Italic*
-           ***Bold Italic***
-           
-           `Code Inline`
-           
-           ```
-           Code Block
-           ```
-           """;
-  }
-
-  @NotNull
   public static MessageEmbed createMessageEmbed() {
     return new EmbedBuilder()
       .setAuthor("Author", AVATAR_URL_USER)
