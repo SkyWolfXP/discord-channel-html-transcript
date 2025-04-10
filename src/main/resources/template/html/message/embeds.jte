@@ -15,6 +15,8 @@
         @if(embed.getAuthor().getIconUrl() != null)
           <img
             src="${embed.getAuthor().getIconUrl()}"
+            alt="Embed Author"
+            loading="lazy"
             class="embed__author__icon"
           />
         @endif
@@ -68,6 +70,8 @@
       <div class="embed__image">
         <img
           src="${embed.getImage().getUrl()}"
+          alt="Embed Image"
+          loading="lazy"
           class="embed__image__wrapper"
         />
       </div>
@@ -78,6 +82,8 @@
       <div class="embed__thumbnail">
         <img
           src="${embed.getThumbnail().getUrl()}"
+          alt="Embed Thumbnail"
+          loading="lazy"
           class="embed__thumbnail__wrapper"
         />
       </div>
@@ -89,6 +95,8 @@
         @if(embed.getFooter().getIconUrl() != null)
           <img
             src="${embed.getFooter().getIconUrl()}"
+            alt="Embed Footer Icon"
+            loading="lazy"
             class="embed__footer__icon"
           />
         @endif
