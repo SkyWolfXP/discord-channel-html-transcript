@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <title>#${textChannel.getName()} | ${textChannel.getGuild().getName()}</title>
 
   <!-- Google 'DM Sans' Font -->
