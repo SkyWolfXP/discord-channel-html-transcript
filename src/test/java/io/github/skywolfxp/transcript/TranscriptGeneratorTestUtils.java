@@ -22,13 +22,13 @@ public class TranscriptGeneratorTestUtils {
     List<MessageEmbed> embeds = new ArrayList<>();
     embeds.add(createMessageEmbed());
 
-    Message message1 = new MessageMockBuilder(author1).withContent("*This*").build();
+    Message message1 = new MessageMockBuilder(author1).withContent("**This**").build();
 
     Message message2 = new MessageMockBuilder(author1)
       .withContent("[Library](https://github.com/SkyWolfXP/discord-jda-html-channel-transcript)")
       .build();
 
-    Message message3 = new MessageMockBuilder(author1).withContent("__is__ **Awesome**!").build();
+    Message message3 = new MessageMockBuilder(author1).withContent("__is__ *Awesome*!").build();
 
     Message message4 = new MessageMockBuilder(author2).withEmbeds(embeds).withActionRows(createActionRows()).build();
 
@@ -39,7 +39,17 @@ public class TranscriptGeneratorTestUtils {
       .build();
 
     Message message6 = new MessageMockBuilder(author2)
-      .withContent("I'm a bot")
+      .withContent("""
+                   # Big Header
+                   ## Medium Header
+                   ### Small Header
+                   
+                   `Code Inline`
+                   
+                   ```
+                   Code Block
+                   ```
+                   """)
       .withInteractionMetadata(mockInteraction(author1))
       .build();
 
