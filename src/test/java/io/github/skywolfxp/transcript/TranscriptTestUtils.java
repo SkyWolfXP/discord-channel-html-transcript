@@ -28,7 +28,7 @@ public class TranscriptTestUtils {
   @NotNull
   public static Guild mockGuild() {
     Guild guild = mock(Guild.class);
-    when(guild.getName()).thenReturn("Test Guild");
+    when(guild.getName()).thenReturn("Discord Channel HTML Transcript");
     when(guild.getIconUrl()).thenReturn(AVATAR_URL_BOT);
 
     return guild;
@@ -126,11 +126,11 @@ public class TranscriptTestUtils {
   @NotNull
   public static MessageEmbed createMessageEmbed() {
     return new EmbedBuilder()
-      .setAuthor("Author", AVATAR_URL_USER)
+      .setAuthor("Author Name", AVATAR_URL_USER, AVATAR_URL_USER)
       .setTitle("Title")
       .setDescription("Description")
-      .addField("Field Name #1", "Field Value #1", false)
-      .addField("Field Name #2", "Field Value #2", false)
+      .addField("#1 Field Name", "#1 Field Value", false)
+      .addField("#2 Field Name", "#2 Field Value", false)
       .setImage(AVATAR_URL_USER)
       .setThumbnail(AVATAR_URL_USER)
       .setFooter("Footer", AVATAR_URL_USER)
