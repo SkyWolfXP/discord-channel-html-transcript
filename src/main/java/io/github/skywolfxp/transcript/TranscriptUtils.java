@@ -138,7 +138,7 @@ public class TranscriptUtils {
     matcher = MENTION_CHANNEL.matcher(escapedMessage);
     while (matcher.find()) {
       String channelId = matcher.group(1);
-      GuildChannel channel = guild.getChannelById(GuildChannel.class, channelId);
+      GuildChannel channel = guild.getGuildChannelById(channelId);
 
       if (channel == null) {
         escapedMessage = escapedMessage.replace(
