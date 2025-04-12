@@ -35,8 +35,9 @@ public class TranscriptUtils {
   private final static long MB = KB * KB;
   private final static long GB = MB * KB;
 
+  // TODO: Take a look at @NotNull on Guild parameter
   @NotNull
-  public static String parseMarkup(@NotNull Guild guild, @NotNull String message) {
+  public static String parseMarkup(Guild guild, @NotNull String message) {
     String escapedMessage = escapeMessage(message).replaceAll("(?<!```)\\n", "<br>\n");
 
     Matcher matcher = UNDERLINE.matcher(escapedMessage);
@@ -110,7 +111,7 @@ public class TranscriptUtils {
         escapedMessage =
           escapedMessage.replace(matcher.group(), "<span class=\"mention\">@%s</span>".formatted(userId));
 
-        break;
+        continue;
       }
 
       escapedMessage = escapedMessage.replace(
@@ -126,7 +127,7 @@ public class TranscriptUtils {
       if (role == null) {
         escapedMessage = escapedMessage.replace(matcher.group(), "<span class=\"mention\">@unknown-role</span>");
 
-        break;
+        continue;
       }
 
       escapedMessage = escapedMessage.replace(
@@ -156,7 +157,7 @@ public class TranscriptUtils {
                            </span>
                            """);
 
-        break;
+        continue;
       }
 
       escapedMessage = escapedMessage.replace(
