@@ -1,6 +1,7 @@
 package io.github.skywolfxp.transcript;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.emoji.*;
@@ -9,6 +10,7 @@ import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
 import java.time.Instant;
@@ -26,20 +28,17 @@ public class TranscriptTestUtils {
   protected final static String RICH_CUSTOM_EMOJI = "https://cdn.discordapp.com/emojis/1353135081476329523.webp?";
 
   @NotNull
-  public static Guild mockGuild() {
-    Guild guild = mock(Guild.class);
-    when(guild.getName()).thenReturn("Discord Channel HTML Transcript");
-    when(guild.getIconUrl()).thenReturn(AVATAR_URL_BOT);
+  public static JDA mockJDA(@NotNull User user) {
+    JDA jda = mock(JDA.class);
+    when(jda.getUserById(user.getId())).thenReturn(user);
 
-    return guild;
+    return jda;
   }
 
   @NotNull
-  public static TextChannel mockTextChannel() {
+  public static TextChannel mockTextChannel(@NotNull String name, @Nullable Guild guild) {
     TextChannel textChannel = mock(TextChannel.class);
-    when(textChannel.getName()).thenReturn("discord-channel-html-transcript");
-
-    Guild guild = mockGuild();
+    when(textChannel.getName()).thenReturn(name);
     when(textChannel.getGuild()).thenReturn(guild);
 
     return textChannel;
@@ -54,6 +53,15 @@ public class TranscriptTestUtils {
     when(user.isBot()).thenReturn(isBot);
 
     return user;
+  }
+
+  @NotNull
+  public static Role mockRole(String name, int colorRaw) {
+    Role role = mock(Role.class);
+    when(role.getName()).thenReturn(name);
+    when(role.getColorRaw()).thenReturn(colorRaw);
+
+    return role;
   }
 
   @NotNull

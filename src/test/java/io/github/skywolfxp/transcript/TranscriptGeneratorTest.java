@@ -4,6 +4,7 @@ import gg.jte.ContentType;
 import gg.jte.TemplateEngine;
 import gg.jte.output.Utf8ByteOutput;
 import gg.jte.resolve.DirectoryCodeResolver;
+import net.dv8tion.jda.api.entities.Guild;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -51,9 +52,11 @@ class TranscriptGeneratorTest {
 
   @Test
   void createTranscript() throws IOException {
+    Guild guild = TranscriptGeneratorTestUtils.createGuild();
+
     HashMap<String, Object> params = new HashMap<>();
-    params.put("textChannel", TranscriptTestUtils.mockTextChannel());
-    params.put("messages", TranscriptGeneratorTestUtils.createMessages());
+    params.put("textChannel", TranscriptTestUtils.mockTextChannel("discord-channel-html-transcript", guild));
+    params.put("messages", TranscriptGeneratorTestUtils.createMessages(guild));
     params.put("isDev", true);
 
     transcript.getTemplateEngine().render("template.jte", params, transcript.getUtf8ByteOutput());

@@ -15,13 +15,15 @@ public final class MessageMockBuilder {
   private final Message message = mock(Message.class);
 
   public MessageMockBuilder(@NotNull User author) {
-    Guild guild = mock(Guild.class);
-    when(message.getGuild()).thenReturn(guild);
-
     when(message.getAuthor()).thenReturn(author);
     when(message.getContentRaw()).thenReturn("");
     when(message.getTimeCreated()).thenReturn(OffsetDateTime.now());
     when(message.getId()).thenReturn(String.valueOf(new Random().nextLong(100000000000000000L, 999999999999999999L)));
+  }
+
+  public MessageMockBuilder withGuild(@NotNull Guild guild) {
+    when(message.getGuild()).thenReturn(guild);
+    return this;
   }
 
   public MessageMockBuilder withContent(@NotNull String content) {
