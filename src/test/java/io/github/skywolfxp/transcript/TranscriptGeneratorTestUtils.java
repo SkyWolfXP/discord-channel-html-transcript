@@ -19,7 +19,7 @@ public class TranscriptGeneratorTestUtils {
   public static Guild createGuild() {
     GuildMockBuilder guildBuilder = new GuildMockBuilder().withJDA(mockJDA(AUTHOR_1));
     guildBuilder.withGuildChannel("420", mockTextChannel("discord-channel-html-transcript", guildBuilder.build()));
-    guildBuilder.withRole("420", mockRole("custom-role", 10));
+    guildBuilder.withRole("420", mockRole("custom-role", 51200));
 
     return guildBuilder.build();
   }
@@ -60,14 +60,9 @@ public class TranscriptGeneratorTestUtils {
                    Code Block
                    ```
                    
-                   User: <@545902760453996546>
-                   Unknown User: <@0>
-                   
-                   Role: <@&420>
-                   Unknown Role: <@&0>
-                   
-                   Channel: <#420>
-                   Unknown Channel: <#0>
+                   <@545902760453996546> <@0>
+                   <@&420> <@&0>
+                   <#420> <#0>
                    """)
       .withInteractionMetadata(mockInteraction(AUTHOR_1))
       .build();
