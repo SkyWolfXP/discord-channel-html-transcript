@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.interactions.InteractionType;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
+import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -159,6 +160,7 @@ public class TranscriptTestUtils {
     List<ActionRow> actionRows = new ArrayList<>();
     actionRows.add(ActionRow.of(actionRowButtons));
     actionRows.add(ActionRow.of(actionRowButtons.stream().map(Button::asDisabled).toList()));
+    actionRows.add(ActionRow.of(StringSelectMenu.create("0").addOption("Option #1", "Value #1").build()));
 
     return actionRows;
   }
