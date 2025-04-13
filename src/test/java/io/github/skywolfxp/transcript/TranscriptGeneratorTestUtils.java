@@ -19,7 +19,7 @@ public class TranscriptGeneratorTestUtils {
   public static Guild createGuild() {
     GuildMockBuilder guildBuilder = new GuildMockBuilder().withJDA(mockJDA(AUTHOR_1));
     guildBuilder.withGuildChannel("420", mockTextChannel("discord-channel-html-transcript", guildBuilder.build()));
-    guildBuilder.withRole("420", mockRole("custom-role", 51200));
+    guildBuilder.withRole("420", mockRole("Admin", 51200));
 
     return guildBuilder.build();
   }
@@ -38,7 +38,7 @@ public class TranscriptGeneratorTestUtils {
       .withContent("[Library](https://github.com/SkyWolfXP/discord-channel-html-transcript)")
       .build();
 
-    Message message3 = new MessageMockBuilder(AUTHOR_1).withContent("__is__ *Awesome*!").build();
+    Message message3 = new MessageMockBuilder(AUTHOR_1).withContent("__is__ *Awesome!*").build();
 
     Message message4 = new MessageMockBuilder(AUTHOR_2).withEmbeds(embeds).withActionRows(createActionRows()).build();
 
@@ -60,9 +60,9 @@ public class TranscriptGeneratorTestUtils {
                    Code Block
                    ```
                    
-                   <@545902760453996546> <@0>
-                   <@&420> <@&0>
-                   <#420> <#0>
+                   **User Mentions:** <@545902760453996546> <@0>
+                   **Role Mentions:** <@&420> <@&0>
+                   **Channel Mentions:** <#420> <#0>
                    """)
       .withInteractionMetadata(mockInteraction(AUTHOR_1))
       .build();
