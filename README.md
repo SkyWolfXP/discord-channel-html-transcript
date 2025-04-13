@@ -5,8 +5,9 @@
     <a href="https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/SkyWolfXP/discord-channel-html-transcript?style=for-the-badge&color=%2300c800"></a>
 </p>
 
-Java library for generating easily shareable, Discord-like offline HTML file of Discord channels.\
-Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Template Engine**](https://github.com/casid/jte/).
+A Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord visuals.\
+Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
+& [**Java Template Engine**](https://github.com/casid/jte/).
 
 <details>
   <summary>Table of Contents</summary>
@@ -41,7 +42,7 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Templa
 
 ## Installation
 
-![Apache Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=Apache+Maven&logoColor=FFFFFF)
+<h3 align="center">Maven</h3>
 
 ```xml
 
@@ -54,15 +55,15 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA) & [**Java Templa
 </dependencies>
 ```
 
-![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=Gradle&logoColor=FFFFFF)
+<h3 align="center">Gradle</h3>
 
 ```kts
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 dependencies {
-    implementation("io.github.skywolfxp:discord-channel-html-transcript:${version}")
+  implementation("io.github.skywolfxp:discord-channel-html-transcript:${version}")
 }
 ```
 
@@ -72,8 +73,7 @@ dependencies {
     - **Windows:** `%USERPROFILE%\AppData\Local\Temp`
     - **macOS:** `/tmp`
     - **Linux:** `/tmp`
-2. Copy the CSS styles
-   of [style.jte](https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/src/main/resources/template/css/style.jte)
+2. Copy the CSS styles of [style.jte](https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/src/main/resources/template/css/style.jte)
    to `%temp%/discord-channel-html-transcript/style.css` and experiment with your own CSS!
 
 ## Work In-Progress
