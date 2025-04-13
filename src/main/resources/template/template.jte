@@ -52,7 +52,7 @@
 
 <body>
 <!-- Header -->
-<div class="header">
+<div class="header user-select-none">
   <!-- Bar -->
   <div class="bar">
     <div class="bar__guild">
@@ -84,7 +84,7 @@
       />
     </svg>
 
-    <h1 class="channel__header__title user-select-none">${textChannel.getName()}</h1>
+    <h1 class="channel__header__title">${textChannel.getName()}</h1>
   </section>
 </div>
 
@@ -174,5 +174,7 @@
     !{previousMessage = message;}
   @endfor
 </ol>
+
+@template.html.license()
 </body>
 </html>
