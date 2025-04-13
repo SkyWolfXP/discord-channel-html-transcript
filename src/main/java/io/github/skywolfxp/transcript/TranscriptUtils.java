@@ -108,15 +108,22 @@ public class TranscriptUtils {
       User user = guild.getJDA().getUserById(userId);
 
       if (user == null) {
-        escapedMessage =
-          escapedMessage.replace(matcher.group(), "<span class=\"mention\">@%s</span>".formatted(userId));
+        escapedMessage = escapedMessage.replace(
+          matcher.group(), """
+                           <span class="mention">
+                             <@%s>
+                           </span>
+                           """.formatted(userId));
 
         continue;
       }
 
       escapedMessage = escapedMessage.replace(
-        matcher.group(), "<a href=\"https://discord.com/users/%s\" class=\"mention\">@%s</a>".formatted(
-          userId, user.getEffectiveName()));
+        matcher.group(), """
+                         <a href="https://discord.com/users/%s" class="mention">
+                           @%s
+                         </a>
+                         """.formatted(userId, user.getEffectiveName()));
     }
 
     matcher = MENTION_ROLE.matcher(escapedMessage);
@@ -125,7 +132,12 @@ public class TranscriptUtils {
       Role role = guild.getRoleById(roleId);
 
       if (role == null) {
-        escapedMessage = escapedMessage.replace(matcher.group(), "<span class=\"mention\">@unknown-role</span>");
+        escapedMessage = escapedMessage.replace(
+          matcher.group(), """
+                           <span class="mention">
+                             @unknown-role
+                           </span>
+                           """);
 
         continue;
       }
