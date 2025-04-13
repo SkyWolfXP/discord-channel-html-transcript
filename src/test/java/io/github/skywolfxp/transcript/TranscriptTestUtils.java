@@ -13,7 +13,6 @@ import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.awt.*;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -144,7 +143,7 @@ public class TranscriptTestUtils {
       .setThumbnail(AVATAR_URL_USER)
       .setFooter("Footer", AVATAR_URL_USER)
       .setTimestamp(Instant.now())
-      .setColor(Color.GREEN)
+      .setColor(51200)
       .build();
   }
 
