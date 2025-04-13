@@ -10,10 +10,12 @@
         @if(reaction.getEmoji().getType().equals(Emoji.Type.CUSTOM))
           <img
             src="${reaction.getEmoji().asCustom().getImageUrl()+"&animated=true"}"
-            class="reaction__emoji"
+            alt="Reaction"
+            loading="lazy"
+            class="reaction__emoji size-5"
           />
         @elseif(reaction.getEmoji().getType().equals(Emoji.Type.UNICODE))
-          <span class="reaction__emoji">
+          <span class="reaction__emoji size-5">
             &#x${reaction.getEmoji().asUnicode().getAsCodepoints().replace("U+", "")};
           </span>
         @endif

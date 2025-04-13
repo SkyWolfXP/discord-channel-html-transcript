@@ -6,7 +6,7 @@
 
 @for(var embed : message.getEmbeds())
   <article
-    style="border-left: 0.25rem solid ${"#%06X".formatted(0xFFFFFF & embed.getColorRaw())};"
+    style="border-left: 0.25rem solid ${"#%1$06X".formatted(embed.getColorRaw())};"
     class="embed"
   >
     <!-- Embed Author -->
@@ -97,7 +97,7 @@
             src="${embed.getFooter().getIconUrl()}"
             alt="Embed Footer Icon"
             loading="lazy"
-            class="embed__footer__icon"
+            class="embed__footer__icon size-5"
           />
         @endif
 

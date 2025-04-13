@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <title>#${textChannel.getName()} | ${textChannel.getGuild().getName()}</title>
 
   <!-- Google 'DM Sans' Font -->
@@ -60,7 +60,7 @@
         src="${textChannel.getGuild().getIconUrl()}"
         alt="Server Icon"
         loading="lazy"
-        class="bar__guild__icon"
+        class="size-5"
       />
 
       <div class="bar__guild__name">
@@ -76,7 +76,7 @@
       viewBox="0 0 24 24"
       aria-hidden="true"
       role="img"
-      class="channel__header__icon"
+      class="channel__header__icon size-5"
     >
       <path
         fill-rule="evenodd"
