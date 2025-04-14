@@ -4,10 +4,10 @@ import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import org.jetbrains.annotations.NotNull;
 
-import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Random;
 
+import static io.github.skywolfxp.transcript.TranscriptTestUtils.TIME;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -17,7 +17,7 @@ public final class MessageMockBuilder {
   public MessageMockBuilder(@NotNull User author) {
     when(message.getAuthor()).thenReturn(author);
     when(message.getContentRaw()).thenReturn("");
-    when(message.getTimeCreated()).thenReturn(OffsetDateTime.now());
+    when(message.getTimeCreated()).thenReturn(TIME);
     when(message.getId()).thenReturn(String.valueOf(new Random().nextLong(100000000000000000L, 999999999999999999L)));
   }
 

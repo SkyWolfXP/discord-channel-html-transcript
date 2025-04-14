@@ -13,7 +13,8 @@ import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class TranscriptTestUtils {
   protected final static String AVATAR_URL_BOT =
     "https://cdn.discordapp.com/avatars/1093684128437764136/812a2439d19dabf4da5e6f211b3eeb88.png?";
   protected final static String RICH_CUSTOM_EMOJI = "https://cdn.discordapp.com/emojis/1353135081476329523.webp?";
+  protected final static OffsetDateTime TIME = OffsetDateTime.of(2030, 2, 20, 0, 0, 0, 0, ZoneOffset.UTC);
 
   @NotNull
   public static JDA mockJDA(@NotNull User user) {
@@ -142,7 +144,7 @@ public class TranscriptTestUtils {
       .setImage(AVATAR_URL_USER)
       .setThumbnail(AVATAR_URL_USER)
       .setFooter("Footer", AVATAR_URL_USER)
-      .setTimestamp(Instant.now())
+      .setTimestamp(TIME)
       .setColor(51200)
       .build();
   }
