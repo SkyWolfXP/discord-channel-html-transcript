@@ -1,22 +1,15 @@
 package io.github.skywolfxp.transcript;
 
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.entities.emoji.*;
 import net.dv8tion.jda.api.interactions.InteractionType;
-import net.dv8tion.jda.api.interactions.components.ActionRow;
-import net.dv8tion.jda.api.interactions.components.buttons.Button;
-import net.dv8tion.jda.api.interactions.components.buttons.ButtonStyle;
-import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -131,38 +124,5 @@ public class TranscriptTestUtils {
     when(interaction.getName()).thenReturn("command");
 
     return interaction;
-  }
-
-  @NotNull
-  public static MessageEmbed createMessageEmbed() {
-    return new EmbedBuilder()
-      .setAuthor("Author Name", AVATAR_URL_USER, AVATAR_URL_USER)
-      .setTitle("Title")
-      .setDescription("Description")
-      .addField("#1 Field Name", "#1 Field Value", false)
-      .addField("#2 Field Name", "#2 Field Value", false)
-      .setImage(AVATAR_URL_USER)
-      .setThumbnail(AVATAR_URL_USER)
-      .setFooter("Footer", AVATAR_URL_USER)
-      .setTimestamp(TIME)
-      .setColor(51200)
-      .build();
-  }
-
-  @NotNull
-  public static List<ActionRow> createActionRows() {
-    List<Button> actionRowButtons = new ArrayList<>();
-    actionRowButtons.add(Button.of(ButtonStyle.PRIMARY, "1", "Primary", Emoji.fromUnicode("💠")));
-    actionRowButtons.add(Button.of(ButtonStyle.SECONDARY, "2", "Secondary", Emoji.fromUnicode("💠")));
-    actionRowButtons.add(Button.of(ButtonStyle.SUCCESS, "3", "Success", Emoji.fromUnicode("💠")));
-    actionRowButtons.add(Button.of(ButtonStyle.DANGER, "4", "Danger", Emoji.fromUnicode("💠")));
-    actionRowButtons.add(Button.of(ButtonStyle.LINK, "https://github.com/SkyWolfXP", "Link", Emoji.fromUnicode("🔗")));
-
-    List<ActionRow> actionRows = new ArrayList<>();
-    actionRows.add(ActionRow.of(actionRowButtons));
-    actionRows.add(ActionRow.of(actionRowButtons.stream().map(Button::asDisabled).toList()));
-    actionRows.add(ActionRow.of(StringSelectMenu.create("0").addOption("Option #1", "Value #1").build()));
-
-    return actionRows;
   }
 }
