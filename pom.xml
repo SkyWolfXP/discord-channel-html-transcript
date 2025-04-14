@@ -10,13 +10,14 @@
 
   <name>discord-channel-html-transcript</name>
   <description>
-    Java library for generating Discord-like HTML transcripts, Using Java Discord API &amp; Java Template Engine
+    Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord
+    visuals!
   </description>
   <url>https://github.com/SkyWolfXP/discord-channel-html-transcript</url>
 
   <licenses>
     <license>
-      <name>CC BY-SA 4.0</name>
+      <name>Attribution-ShareAlike 4.0 International</name>
       <url>https://creativecommons.org/licenses/by-sa/4.0/</url>
       <distribution>repo</distribution>
     </license>
