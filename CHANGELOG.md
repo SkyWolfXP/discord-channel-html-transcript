@@ -1,17 +1,17 @@
 # Changelog
 
-## [UNRELEASED]
+## 1.1.0 - 2025 Discord Interface
 
 ### Changed
 
-- Update HTML and CSS to match Discord's 2025 interface.
+- Update HTML and CSS to match Discord's new 2025 interface.
 
 ### Fixed
 
-- Fixed Discord markdown parsing only the first matched mention.
-- Fixed role mention background and foreground.
+- Fix Discord markdown parsing only the first matched mention.
+- Fix role mention background and foreground colors.
 
-## [1.0.1] - 2025-03-26
+## 1.0.1 - Initial Release
 
 ### Added
 
