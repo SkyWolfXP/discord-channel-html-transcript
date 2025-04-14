@@ -22,6 +22,8 @@
                 @if(button.getEmoji().getType().equals(Emoji.Type.CUSTOM))
                   <img
                     src="${button.getEmoji().asCustom().getImageUrl()}"
+                    alt="Custom Emoji"
+                    loading="lazy"
                     class="action-row__button__emoji"
                   />
                 @else
