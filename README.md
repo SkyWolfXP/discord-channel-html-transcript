@@ -1,16 +1,20 @@
-<h1 align="center">Discord Channel HTML Transcript</h1>
+<h1 style="text-align: center;">Discord Channel HTML Transcript</h1>
 
-<p align="center">
-    <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&color=%2300c800&label=Maven%20Central"></a>
-    <a href="https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/SkyWolfXP/discord-channel-html-transcript?style=for-the-badge&color=%2300c800"></a>
+<p style="text-align: center;"><strong>Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord visuals!</strong></p>
+
+<p style="text-align: center;">
+    <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=flat-square&label=MAVEN&labelColor=101010&color=008E00"></a>
+    <a href="https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/skywolfxp/discord-channel-html-transcript?style=flat-square&label=LICENSE&labelColor=101010&color=008E00&link=https%3A%2F%2Fgithub.com%2FSkyWolfXP%2Fdiscord-channel-html-transcript%2Fblob%2Fmain%2FLICENSE"></a>
 </p>
 
-A Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord visuals.\
+## About
+
+This is currently the **only** up-to date Transcript generator, displaying the newest Discord interface.\
 Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
 & [**Java Template Engine**](https://github.com/casid/jte/).
 
 <details>
-  <summary>Table of Contents</summary>
+  <summary><strong>Contents</strong></summary>
   <ol>
     <li><a href="#features">Features</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
@@ -42,7 +46,7 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
 
 ## Installation
 
-<h3 align="center">Maven</h3>
+### Maven
 
 ```xml
 
@@ -55,7 +59,7 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
 </dependencies>
 ```
 
-<h3 align="center">Gradle</h3>
+### Gradle
 
 ```kts
 repositories {
