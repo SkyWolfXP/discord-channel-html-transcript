@@ -1,8 +1,8 @@
-<h1 style="text-align: center;">Discord Channel HTML Transcript</h1>
+<h1 align="center">Discord Channel HTML Transcript</h1>
 
-<p style="text-align: center;"><strong>Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord visuals!</strong></p>
+<p align="center"><strong>Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord visuals!</strong></p>
 
-<p style="text-align: center;">
+<p align="center">
     <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=flat-square&label=MAVEN&labelColor=101010&color=008E00"></a>
     <a href="https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/skywolfxp/discord-channel-html-transcript?style=flat-square&label=LICENSE&labelColor=101010&color=008E00&link=https%3A%2F%2Fgithub.com%2FSkyWolfXP%2Fdiscord-channel-html-transcript%2Fblob%2Fmain%2FLICENSE"></a>
 </p>
