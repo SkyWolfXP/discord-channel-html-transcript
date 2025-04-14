@@ -3,8 +3,8 @@
 <p align="center"><strong>Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord visuals!</strong></p>
 
 <p align="center">
-    <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=flat-square&label=MAVEN&labelColor=101010&color=008E00"></a>
-    <a href="https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/skywolfxp/discord-channel-html-transcript?style=flat-square&label=LICENSE&labelColor=101010&color=008E00&link=https%3A%2F%2Fgithub.com%2FSkyWolfXP%2Fdiscord-channel-html-transcript%2Fblob%2Fmain%2FLICENSE"></a>
+    <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=flat-square&label=MAVEN&labelColor=black&color=008E00"></a>
+    <a href="https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/skywolfxp/discord-channel-html-transcript?style=flat-square&label=LICENSE&labelColor=black&color=008E00&link=https%3A%2F%2Fgithub.com%2FSkyWolfXP%2Fdiscord-channel-html-transcript%2Fblob%2Fmain%2FLICENSE"></a>
 </p>
 
 ## About
@@ -73,18 +73,18 @@ dependencies {
 
 ## Testing & Development
 
-1. Run `TranscriptGeneratorTest`, This will create a `discord-channel-html-transcript` directory under:
+1. Run [TranscriptGeneratorTest](src/test/java/io/github/skywolfxp/transcript/TranscriptGeneratorTest.java), This will create a
+   `discord-channel-html-transcript` folder under:
     - **Windows:** `%USERPROFILE%\AppData\Local\Temp`
     - **macOS:** `/tmp`
     - **Linux:** `/tmp`
-2. Copy the CSS styles of [style.jte](https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/src/main/resources/template/css/style.jte)
+2. Copy the CSS styles of [style.jte](src/main/resources/template/css/style.jte)
    to `%temp%/discord-channel-html-transcript/style.css` and experiment with your own CSS!
-
-## Work In-Progress
-
-- [ ] System Messages
-- [ ] Thread Started Message
 
 ## Socials
 
-[![Fiverr](https://img.shields.io/badge/%40SkyWolfXP-FFFFFF?style=flat-square&logo=fiverr&logoColor=FFFFFF&logoSize=auto&color=%231DBF73)](https://www.fiverr.com/skywolfxp) [![Discord](https://img.shields.io/badge/%40SkyWolfXP-FFFFFF?style=flat-square&logo=discord&logoColor=FFFFFF&color=%235865F2)](https://discord.com/users/545902760453996546) [![Reddit](https://img.shields.io/badge/u%2FSkyWolfXP-FFFFFF?style=flat-square&logo=reddit&logoColor=FFFFFF&color=%23FF4500)](https://reddit.com/user/skywolfxp) [![Stackoverflow](https://img.shields.io/badge/SkyWolfXP-FFFFFF?style=flat-square&logo=stackoverflow&logoColor=FFFFFF&color=%23F58025)](https://stackoverflow.com/users/16410630)
+<a href="https://www.fiverr.com/skywolfxp"><img alt="Fiverr" src="https://img.shields.io/badge/%40skywolfxp-%231DBF73?style=flat-square&logo=fiverr&logoColor=FFFFFF&logoSize=auto"></a>
+<a href="https://www.upwork.com/freelancers/~013d98c8a8af272cbb"><img alt="Upwork" src="https://img.shields.io/badge/Omar_D.-%236FDA44?style=flat-square&logo=upwork&logoColor=FFFFFF"></a>
+<a href="https://discord.com/users/545902760453996546"><img alt="Discord" src="https://img.shields.io/badge/%40skywolfxp.me-%235865F2?style=flat-square&logo=discord&logoColor=FFFFFF"></a>
+<a href="https://www.reddit.com/user/skywolfxp"><img alt="Reddit" src="https://img.shields.io/badge/u%2Fskywolfxp-%23FF4500?style=flat-square&logo=reddit&logoColor=FFFFFF"></a>
+<a href="https://stackoverflow.com/users/16410630"><img alt="Stack Overflow" src="https://img.shields.io/badge/SkyWolfXP-%23F58025?style=flat-square&logo=stackoverflow&logoColor=FFFFFF"></a>
