@@ -1,13 +1,11 @@
 <style>
   :root {
-    --background-tertiary: #1e1f22;
     --background-brand: hsl(234.935 85.556% 64.706% /1);
-    --text-normal: hsl(240 3.226% 93.922%);
+    --text-normal: hsl(240 3.226% 93.922% /1);
     --text-muted: hsl(232.5 3.883% 59.608% /1);
-    --channel-header-icon: #80848e;
-    --header-primary: #f2f3f5;
-    --mention-background-color: var(--background-brand);
-    --mention-background-color-hover: #5865f270;
+    --header-primary: hsl(0 0% 98.431% /1);
+    --mention-foreground: hsl(225.682 100% 82.745% /1);
+    --mention-background: hsl(234.935 85.556% 64.706% /0.23921568627450981);
     --button-brand-background: hsl(234.935 85.556% 64.706%);
     --button-brand-background-hover: hsl(233.115 49.194% 51.373% /1);
     --button-secondary-background: hsl(240 4% 60.784% /0.12156862745098039);
@@ -16,7 +14,8 @@
     --button-positive-background-hover: hsl(145.082 93.846% 25.49% /1);
     --button-danger-background: hsl(355.636 64.706% 50% /1);
     --button-danger-background-hover: hsl(356.143 63.636% 43.137% /1);
-    --interactive-normal: #b5bac1;
+    --text-secondary: hsl(240 4.294% 68.039% /1);
+    --brand-500: hsl(234.935 85.556% 64.706% /1);
     --text-link: hsl(212.561 84.536% 61.961% /1);
     --channel-icon: hsl(233.333 3.734% 52.745% /1);
     --border-subtle: hsl(240 4% 60.784% /0.12156862745098039);
@@ -29,6 +28,7 @@
     --background-mod-subtle: hsl(240 4% 60.784% /0.0784313725490196);
     --background-mod-normal: hsl(240 4% 60.784% /0.1607843137254902);
     --border-faint: hsl(240 4% 60.784% /0.0392156862745098);
+    --input-background: hsl(0 0% 0% /0.0784313725490196);
     font-family: "DM Sans", "sans-serif";
   }
 
@@ -64,6 +64,7 @@
     display: flex;
     flex-direction: column;
     position: sticky;
+    z-index: 100;
     top: 0;
     width: 100%;
     color: var(--text-normal);
@@ -73,7 +74,7 @@
   .bar {
     display: flex;
     justify-content: center;
-    height: 34px;
+    height: 2.125rem;
     background-color: var(--background-base-lowest);
   }
 
@@ -85,14 +86,9 @@
     max-width: 50vw;
   }
 
-  .bar__guild__icon {
-    width: 20px;
-    height: 20px;
-  }
-
   .bar__guild__name {
     overflow: hidden;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -102,18 +98,16 @@
   .channel__header {
     display: flex;
     align-items: center;
-    height: 46px;
+    height: 2.875rem;
     padding: 0.5rem;
     background-color: var(--header-bar-background);
     border-bottom: 1px solid var(--border-subtle);
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 
   .channel__header__icon {
     fill: var(--channel-icon);
-    width: 20px;
-    height: 20px;
     margin: 0 0.5rem;
   }
 
@@ -122,18 +116,6 @@
     overflow: hidden;
     font-weight: 500;
     color: var(--text-normal);
-  }
-
-  .channel__header__help-icon {
-    fill: var(--channel-header-icon);
-    width: 24px;
-    height: 24px;
-    margin: 0 0.5rem;
-  }
-
-  .channel__header__help-icon:hover {
-    fill: var(--interactive-normal);
-    cursor: pointer;
   }
 
   .channel__content {
@@ -260,7 +242,7 @@
     align-items: center;
     gap: 0.25rem;
     grid-column: 2;
-    height: 18px;
+    height: 1.125rem;
     margin-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.125rem;
@@ -276,8 +258,8 @@
   }
 
   .reference__author__avatar {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     border-radius: 100%;
   }
 
@@ -299,7 +281,7 @@
     gap: 0.25rem;
     opacity: 0.64;
     overflow: hidden;
-    max-height: 18px;
+    max-height: 1.125rem;
     line-height: inherit;
     color: var(--header-primary);
   }
@@ -316,7 +298,7 @@
 
   .reference__interaction__mention {
     gap: 0.25rem;
-    padding: 0 2px;
+    padding: 0 0.125rem;
     background-color: rgba(88, 101, 242, 0.3);
     border-radius: 3px;
     font-weight: 500;
@@ -351,16 +333,16 @@
     flex-flow: row nowrap;
     overflow: hidden;
     width: max-content;
-    max-width: 550px;
+    max-width: 34rem;
     height: 100%;
-    padding: 0.125rem 0 0.125rem 0;
+    padding: 0.125rem 0;
     border-radius: 8px;
   }
 
   .attachment__file {
     display: flex;
     gap: 0.5rem;
-    width: 432px;
+    width: 26rem;
     max-width: 100%;
     margin-top: 0.5rem;
     padding: 1rem;
@@ -489,7 +471,7 @@
   }
 
   .embed__image__wrapper {
-    aspect-ratio: 128 / 128;
+    aspect-ratio: 128/128;
     display: flex;
     width: 100%;
     max-width: 128px;
@@ -502,13 +484,13 @@
     object-fit: fill;
     grid-row: 1/8;
     grid-column: 2/2;
-    width: 80px;
-    height: 80px;
+    width: 5rem;
+    height: 5rem;
     margin: 0.5rem 0 0 1rem;
   }
 
   .embed__thumbnail__wrapper {
-    aspect-ratio: 128 / 128;
+    aspect-ratio: 128/128;
     overflow: hidden;
     width: 100%;
     height: 100%;
@@ -523,8 +505,6 @@
   }
 
   .embed__footer__icon {
-    width: 1.25rem;
-    height: 1.25rem;
     margin-right: 0.5rem;
     border-radius: 100%;
   }
@@ -545,7 +525,7 @@
   .action-rows {
     display: flex;
     flex-direction: column;
-    row-gap: 6px;
+    row-gap: 0.375rem;
     overflow: hidden;
     width: 100%;
     margin-top: 0.25rem;
@@ -564,13 +544,13 @@
     display: flex;
     align-items: center;
     width: auto;
-    min-width: 60px;
-    height: 32px;
+    min-width: 3.75rem;
+    height: 2rem;
     padding: 0.125rem 1rem;
     transition: background-color 170ms ease;
     cursor: pointer;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.375rem;
   }
 
@@ -580,8 +560,8 @@
   }
 
   .action-row__button__emoji {
-    width: 22px;
-    height: 22px;
+    width: 1.375rem;
+    height: 1.375rem;
     margin-right: 0.25rem;
     font-size: 1rem;
   }
@@ -634,18 +614,16 @@
   .action-row__select {
     display: grid;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     grid-template-columns: 1fr auto;
     width: 90%;
-    max-width: 400px;
+    max-width: 25rem;
     padding: 0.5rem;
-    background-color: #1e1f22;
+    background-color: var(--input-background);
     cursor: pointer;
-    border-radius: 4px;
-  }
-
-  .action-row__select__text {
-    color: #87898c;
+    border: 1px solid var(--border-normal);
+    border-radius: 8px;
+    color: var(--text-secondary);
   }
 
   /* Reactions */
@@ -660,7 +638,7 @@
     display: flex;
     align-items: center;
     gap: 0.375rem;
-    min-height: 24px;
+    min-height: 1.5rem;
     margin-right: 0.25rem;
     padding: 0.125rem 0.375rem;
     transition: none 0.1s ease;
@@ -677,8 +655,6 @@
   }
 
   .reaction__emoji {
-    width: 20px;
-    height: 20px;
     margin: 0.125rem 0;
     line-height: 1.25rem;
   }
@@ -686,8 +662,20 @@
   .reaction__count {
     font-weight: 600;
     line-height: 1.25rem;
-    color: var(--interactive-normal);
+    color: var(--text-secondary);
     text-align: center;
+  }
+
+  /* Custom Utility */
+  .user-select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  .size-5 {
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   /* Discord Utility */
@@ -726,10 +714,6 @@
     color: var(--text-normal);
   }
 
-  .embed .markup__code-block {
-    background-color: var(--background-tertiary);
-  }
-
   .markup__code-inline {
     padding: 0 0.2em;
     background: var(--background-code);
@@ -737,10 +721,6 @@
     border-radius: 4px;
     font-size: 0.875rem;
     line-height: 1.125rem;
-  }
-
-  .embed .markup__code-inline {
-    background-color: var(--background-tertiary);
   }
 
   .markup__header {
@@ -774,17 +754,19 @@
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    padding: 0 2px;
+    padding: 0 0.125rem;
     transition: background-color 50ms ease-out, color 50ms ease-out;
-    background: var(--mention-background-color-hover);
+    background: var(--mention-background);
     cursor: pointer;
     border-radius: 3px;
     font-weight: 500;
-    color: #c9cdfb;
+    line-height: 1.375rem;
+    color: var(--mention-foreground);
+    vertical-align: middle;
   }
 
   .mention:hover {
-    background: var(--mention-background-color);
+    background: var(--brand-500);
     color: white;
   }
 
@@ -793,19 +775,12 @@
   }
 
   .mention__channel-icon {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
   }
 
   .mention__channel-name {
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-
-  /* Utility */
-  .user-select-none {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
   }
 </style>
