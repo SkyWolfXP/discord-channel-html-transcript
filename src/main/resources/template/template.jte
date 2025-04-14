@@ -149,7 +149,7 @@
           $unsafe{TranscriptUtils.parseMarkup(message.getGuild(), message.getContentRaw())}
 
           <!-- Attachments -->
-          @template.html.message.attachments(message = message)
+          @template.html.message.attachment(message = message)
 
           @if(message.getTimeEdited() != null)
             <span class="message__edited user-select-none">
@@ -162,13 +162,13 @@
         </div>
 
         <!-- Embeds -->
-        @template.html.message.embeds(message = message)
+        @template.html.message.embed(message = message)
 
         <!-- ActionRows -->
-        @template.html.message.actionrows(message = message)
+        @template.html.message.action-row(message = message)
 
         <!-- Reactions -->
-        @template.html.message.reactions(message = message)
+        @template.html.message.reaction(message = message)
       </div>
     </li>
     !{previousMessage = message;}
