@@ -4,7 +4,8 @@
 
 ### Changed
 
-- Use Discord's "gg sans" font instead of Google's "DM sans".
+- Replace Google's "DM sans" font with Discord's "gg sans" font.
+- Update the footer styling.
 
 ## 1.1.0
 
