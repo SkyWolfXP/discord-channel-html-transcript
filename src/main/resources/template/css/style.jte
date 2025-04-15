@@ -82,6 +82,7 @@
     width: 100%;
     height: 1.5rem;
     background-color: var(--background-base-lowest);
+    border-top: 1px solid var(--border-subtle);
     font-weight: 500;
     color: var(--text-normal);
   }
