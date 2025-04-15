@@ -13,11 +13,6 @@ This Java library is the **only** up-to-date Transcript generator, displaying yo
 Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
 & [**Java Template Engine**](https://github.com/casid/jte/).
 
-### Legal
-
-**This project utilizes
-Discord's "[gg sans](https://my.corebook.io/1zObrQ89Q4wHhgFCfYIUhMUvmNf4XjxO/03-typography/download)" font that is the
-property of [Discord Inc](https://discord.com/). I do not claim any ownership of this font.**
 
 <details>
   <summary><strong>Contents</strong></summary>
@@ -29,6 +24,12 @@ property of [Discord Inc](https://discord.com/). I do not claim any ownership of
     <li><a href="#socials">Socials</a></li>
   </ol>
 </details>
+
+## Legal
+
+**This project utilizes
+Discord's "[gg sans](https://my.corebook.io/1zObrQ89Q4wHhgFCfYIUhMUvmNf4XjxO/03-typography/download)" font that is the
+property of [Discord Inc](https://discord.com/). I do not claim any ownership of this font.**
 
 ## Features
 
