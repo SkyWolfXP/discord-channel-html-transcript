@@ -15,21 +15,26 @@
     --button-danger-background: hsl(355.636 64.706% 50% /1);
     --button-danger-background-hover: hsl(356.143 63.636% 43.137% /1);
     --text-secondary: hsl(240 4.294% 68.039% /1);
-    --brand-500: hsl(234.935 85.556% 64.706% /1);
+    --brand-500: var(--background-brand);
     --text-link: hsl(212.561 84.536% 61.961% /1);
     --channel-icon: hsl(233.333 3.734% 52.745% /1);
-    --border-subtle: hsl(240 4% 60.784% /0.12156862745098039);
-    --header-bar-background: hsl(240 7.143% 10.98% /1);
+    --border-subtle: var(--button-secondary-background);
+    --header-bar-background: var(--background-base-lower);
     --background-base-lower: hsl(240 7.143% 10.98% /1);
     --background-base-lowest: hsl(240 5.263% 7.451% /1);
     --background-code: hsl(234.935 85.556% 64.706% /0.0784313725490196);
-    --border-normal: hsl(240 4% 60.784% /0.2);
+    --border-normal: var(--button-secondary-background-hover);
     --background-surface-high: hsl(240 6.494% 15.098% /1);
     --background-mod-subtle: hsl(240 4% 60.784% /0.0784313725490196);
     --background-mod-normal: hsl(240 4% 60.784% /0.1607843137254902);
     --border-faint: hsl(240 4% 60.784% /0.0392156862745098);
     --input-background: hsl(0 0% 0% /0.0784313725490196);
-    font-family: "DM Sans", "sans-serif";
+    font-family: "ggsans", "Trebuchet MS", "sans-serif";
+  }
+
+  @font-face {
+    src: url(https://cdn.jsdelivr.net/gh/skywolfxp/discord-channel-html-transcript@main/src/main/resources/font/ggsansvf-VF.woff);
+    font-family: "ggsans";
   }
 
   body {
