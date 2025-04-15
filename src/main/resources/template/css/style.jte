@@ -75,6 +75,17 @@
     color: var(--text-normal);
   }
 
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 1.5rem;
+    background-color: var(--background-base-lowest);
+    font-weight: 500;
+    color: var(--text-normal);
+  }
+
   /* Bar */
   .bar {
     display: flex;
@@ -706,6 +717,7 @@
   }
 
   .markup__code-block {
+    white-space-collapse: preserve;
     display: block;
     overflow-x: auto;
     max-width: 90%;
