@@ -19,7 +19,7 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
         <strong>Contents</strong>
     </summary>
     <ol>
-        <li><a href="#legal-compliance">Features</a></li>
+        <li><a href="#legal-compliance">Legal Compliance</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
@@ -83,8 +83,8 @@ dependencies {
 
 ## Testing & Development
 
-1. Run [TranscriptGeneratorTest](src/test/java/io/github/skywolfxp/transcript/TranscriptGeneratorTest.java), This will create a
-   `discord-channel-html-transcript` folder under:
+1. Run [TranscriptGeneratorTest#createTranscript()](src/test/java/io/github/skywolfxp/transcript/TranscriptGeneratorTest.java), A
+   `discord-channel-html-transcript` folder will be created under:
     - **Windows:** `%USERPROFILE%\AppData\Local\Temp`
     - **macOS:** `/tmp`
     - **Linux:** `/tmp`
