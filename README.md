@@ -9,9 +9,15 @@
 
 ## About
 
-This is currently the **only** up-to date Transcript generator, displaying the newest Discord interface.\
+This Java library is the **only** up-to-date Transcript generator, displaying your favorite Discord look!\
 Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
 & [**Java Template Engine**](https://github.com/casid/jte/).
+
+### Legal
+
+**This project utilizes
+Discord's "[gg sans](https://my.corebook.io/1zObrQ89Q4wHhgFCfYIUhMUvmNf4XjxO/03-typography/download)" font that is the
+property of [Discord Inc](https://discord.com/). I do not claim any ownership of this font.**
 
 <details>
   <summary><strong>Contents</strong></summary>
@@ -78,8 +84,8 @@ dependencies {
     - **Windows:** `%USERPROFILE%\AppData\Local\Temp`
     - **macOS:** `/tmp`
     - **Linux:** `/tmp`
-2. Copy the CSS styles of [style.jte](src/main/resources/template/css/style.jte)
-   to `%temp%/discord-channel-html-transcript/style.css` and experiment with your own CSS!
+2. Copy the CSS in [style.jte](src/main/resources/template/css/style.jte)
+   to `/discord-channel-html-transcript/style.css` and experiment with your own CSS!
 
 ## Socials
 
