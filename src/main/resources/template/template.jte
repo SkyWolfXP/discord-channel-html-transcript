@@ -160,6 +160,7 @@
   @endfor
 </ol>
 
-@template.html.license()
+<!-- Footer -->
+@template.html.channel.footer()
 </body>
 </html>
