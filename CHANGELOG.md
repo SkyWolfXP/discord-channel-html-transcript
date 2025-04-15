@@ -2,6 +2,8 @@
 
 ## WIP
 
+## 1.1.1
+
 ### Changed
 
 - Replace Google's "DM sans" font with Discord's "gg sans" font.
