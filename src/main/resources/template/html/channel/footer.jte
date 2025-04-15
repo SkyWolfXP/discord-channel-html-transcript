@@ -28,7 +28,7 @@
   </a>
   &nbsp;•&nbsp;
   <a
-    href="https://github.com/SkyWolfXP/discord-channel-html-transcript/#legal"
+    href="https://github.com/SkyWolfXP/discord-channel-html-transcript/#legal-compliance"
     class="markup__link"
   >
     Legal Compliance

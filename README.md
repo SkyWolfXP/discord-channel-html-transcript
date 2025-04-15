@@ -15,17 +15,20 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
 
 
 <details>
-  <summary><strong>Contents</strong></summary>
-  <ol>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#testing--development">Testing & Development</a></li>
-    <li><a href="#socials">Socials</a></li>
-  </ol>
+    <summary>
+        <strong>Contents</strong>
+    </summary>
+    <ol>
+        <li><a href="#legal-compliance">Features</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#testing--development">Testing & Development</a></li>
+        <li><a href="#socials">Socials</a></li>
+    </ol>
 </details>
 
-## Legal
+## Legal Compliance
 
 **This project utilizes
 Discord's "[gg sans](https://my.corebook.io/1zObrQ89Q4wHhgFCfYIUhMUvmNf4XjxO/03-typography/download)" font that is the
@@ -47,7 +50,7 @@ property of [Discord Inc](https://discord.com/). I do not claim any ownership of
 - **Referenced Message**
 - **Referenced Command**
 
-## Prerequisites
+## Requirements
 
 - **Java 21+**
 
