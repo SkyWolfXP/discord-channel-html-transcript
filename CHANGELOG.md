@@ -1,6 +1,12 @@
 # Changelog
 
-## 1.1.0 - 2025 Discord Interface
+## WIP
+
+### Changed
+
+- Use Discord's "gg sans" font instead of Google's "DM sans".
+
+## 1.1.0
 
 ### Changed
 
@@ -11,7 +17,7 @@
 - Fix Discord markdown parsing only the first matched mention.
 - Fix role mention background and foreground colors.
 
-## 1.0.1 - Initial Release
+## 1.0.1
 
 ### Added
 
