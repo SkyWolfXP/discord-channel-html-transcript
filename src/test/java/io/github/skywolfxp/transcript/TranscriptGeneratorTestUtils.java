@@ -61,9 +61,12 @@ public class TranscriptGeneratorTestUtils {
                    ## Medium Header
                    ### Small Header
                    
-                   `Code Line`
+                   `System.out.println("Hello World");`
                    ```
-                   Code Block
+                   public static void main(String args[]) {
+                            System.out.println("Hello World");
+                        }
+                   }
                    ```
                    
                    **User Mentions:** <@545902760453996546> <@0>
