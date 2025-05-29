@@ -16,9 +16,9 @@ import static org.mockito.Mockito.when;
 
 public class TranscriptTestUtils {
   protected final static String AVATAR_URL_USER =
-    "https://cdn.discordapp.com/avatars/545902760453996546/28198a269015c4aca5e25d63bc9b1a47.png?";
+    "https://cdn.discordapp.com/avatars/545902760453996546/632a94e7219a5e429744285fef0bfd1e.png?";
   protected final static String AVATAR_URL_BOT =
-    "https://cdn.discordapp.com/avatars/1093684128437764136/812a2439d19dabf4da5e6f211b3eeb88.png?";
+    "https://cdn.discordapp.com/avatars/1093684128437764136/3b2cb4620d02fbcae500a447d0c14de9.png?";
   protected final static String RICH_CUSTOM_EMOJI = "https://cdn.discordapp.com/emojis/1353135081476329523.webp?";
   protected final static OffsetDateTime TIME = OffsetDateTime.of(2030, 2, 20, 0, 0, 0, 0, ZoneOffset.UTC);
 
