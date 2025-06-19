@@ -3,7 +3,7 @@
 <p align="center"><strong>Java library to generate easily shareable HTML archives of channels, bringing back the familiar Discord visuals!</strong></p>
 
 <p align="center">
-    <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&label=MAVEN&labelColor=000000&color=008E00"></a>
+    <a href="https://central.sonatype.com/artifact/dev.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/dev.skywolfxp/discord-channel-html-transcript?style=for-the-badge&label=MAVEN&labelColor=000000&color=008E00"></a>
     <a href="https://github.com/skywolfxp/discord-channel-html-transcript/blob/main/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/skywolfxp/discord-channel-html-transcript?style=for-the-badge&label=LICENSE&labelColor=000000&color=008E00"></a>
 </p>
 
@@ -62,7 +62,7 @@ font that is the property of Discord Inc.**\
 
 <dependencies>
   <dependency>
-    <groupId>io.github.skywolfxp</groupId>
+    <groupId>dev.skywolfxp</groupId>
     <artifactId>discord-channel-html-transcript</artifactId>
     <version>${version}</version>
   </dependency>
@@ -77,7 +77,7 @@ repositories {
 }
 
 dependencies {
-  implementation("io.github.skywolfxp:discord-channel-html-transcript:${version}")
+  implementation("dev.skywolfxp:discord-channel-html-transcript:${version}")
 }
 ```
 

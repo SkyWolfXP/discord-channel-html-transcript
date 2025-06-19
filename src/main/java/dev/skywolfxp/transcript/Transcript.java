@@ -1,4 +1,4 @@
-package io.github.skywolfxp.transcript;
+package dev.skywolfxp.transcript;
 
 import gg.jte.ContentType;
 import gg.jte.TemplateEngine;
@@ -22,18 +22,18 @@ import java.io.IOException;
 public final class Transcript {
   private final TemplateEngine templateEngine;
   private final Utf8ByteOutput utf8ByteOutput;
-
+  
   /**
    * Constructs {@link Transcript} with {@link TemplateEngine} precompiled template configuration.
    */
   public Transcript() {
     this.templateEngine = TemplateEngine.createPrecompiled(ContentType.Html);
     this.utf8ByteOutput = new Utf8ByteOutput();
-
+    
     this.templateEngine.setBinaryStaticContent(true);
     this.templateEngine.setTrimControlStructures(true);
   }
-
+  
   /**
    * Constructs {@link Transcript} with provided {@link TemplateEngine}.
    *
@@ -44,17 +44,17 @@ public final class Transcript {
     this.templateEngine = templateEngine;
     this.utf8ByteOutput = new Utf8ByteOutput();
   }
-
+  
   @NotNull
   public TemplateEngine getTemplateEngine() {
     return templateEngine;
   }
-
+  
   @NotNull
   public Utf8ByteOutput getUtf8ByteOutput() {
     return utf8ByteOutput;
   }
-
+  
   /**
    * Converts the output to a {@link FileUpload} to directly send anywhere on Discord.
    *
@@ -71,7 +71,7 @@ public final class Transcript {
       utf8ByteOutput.toByteArray(),
       fileName.endsWith(".html") ? fileName : fileName + ".html");
   }
-
+  
   /**
    * Converts the output to a specified {@link File}.
    *

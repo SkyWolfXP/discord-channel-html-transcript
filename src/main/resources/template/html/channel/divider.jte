@@ -1,4 +1,4 @@
-@import io.github.skywolfxp.transcript.TranscriptConstants
+@import dev.skywolfxp.transcript.TranscriptConstants
 @import net.dv8tion.jda.api.entities.Message
 
 @param Message message

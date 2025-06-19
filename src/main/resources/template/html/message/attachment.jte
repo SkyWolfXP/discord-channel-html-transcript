@@ -1,5 +1,5 @@
 @import net.dv8tion.jda.api.entities.Message
-@import io.github.skywolfxp.transcript.TranscriptUtils
+@import dev.skywolfxp.transcript.TranscriptUtils
 
 @param Message message
 

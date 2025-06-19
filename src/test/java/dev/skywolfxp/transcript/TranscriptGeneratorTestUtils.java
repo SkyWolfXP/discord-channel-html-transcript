@@ -1,4 +1,4 @@
-package io.github.skywolfxp.transcript;
+package dev.skywolfxp.transcript;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Guild;
@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.github.skywolfxp.transcript.TranscriptTestUtils.*;
+import static dev.skywolfxp.transcript.TranscriptTestUtils.*;
 
 public class TranscriptGeneratorTestUtils {
   private final static User AUTHOR_1 = mockAuthor("545902760453996546", "SkyWolfXP", AVATAR_URL_USER, false);

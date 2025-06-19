@@ -1,4 +1,4 @@
-package io.github.skywolfxp.transcript;
+package dev.skywolfxp.transcript;
 
 import gg.jte.ContentType;
 import gg.jte.TemplateEngine;
@@ -23,48 +23,48 @@ import static org.mockito.Mockito.when;
 
 class TranscriptGeneratorTest {
   AutoCloseable autoCloseable;
-
+  
   Path outputDir = Path.of(System.getProperty("java.io.tmpdir")).resolve("discord-channel-html-transcript");
-
+  
   @Mock
   Transcript transcript;
-
+  
   @TempDir
   Path tempDir;
-
+  
   @BeforeEach
   void setUp() throws IOException {
     autoCloseable = MockitoAnnotations.openMocks(this);
-
+    
     when(transcript.getTemplateEngine()).thenReturn(
       TemplateEngine.create(new DirectoryCodeResolver(Path.of("src/main/resources/template")), ContentType.Html));
     when(transcript.getUtf8ByteOutput()).thenReturn(new Utf8ByteOutput());
-
+    
     if (!Files.exists(outputDir)) {
       Files.createDirectories(outputDir);
     }
   }
-
+  
   @AfterEach
   void tearDown() throws Exception {
     autoCloseable.close();
   }
-
+  
   @Test
   void createTranscript() throws IOException {
     Guild guild = TranscriptGeneratorTestUtils.createGuild();
-
+    
     HashMap<String, Object> params = new HashMap<>();
     params.put("textChannel", TranscriptTestUtils.mockTextChannel("discord-channel-html-transcript", guild));
     params.put("messages", TranscriptGeneratorTestUtils.createMessages(guild));
     params.put("isDev", true);
-
+    
     transcript.getTemplateEngine().render("template.jte", params, transcript.getUtf8ByteOutput());
-
+    
     try (FileOutputStream fileOutputStream = new FileOutputStream(tempDir.resolve("transcript-temp.html").toFile())) {
       fileOutputStream.write(transcript.getUtf8ByteOutput().toByteArray());
     }
-
+    
     Files.copy(
       tempDir.resolve("transcript-temp.html"), outputDir.resolve("transcript.html"),
       StandardCopyOption.REPLACE_EXISTING);

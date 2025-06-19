@@ -1,8 +1,8 @@
 @import java.util.List
 @import net.dv8tion.jda.api.entities.Message
 @import net.dv8tion.jda.api.entities.channel.concrete.TextChannel
-@import io.github.skywolfxp.transcript.TranscriptConstants
-@import io.github.skywolfxp.transcript.TranscriptUtils
+@import dev.skywolfxp.transcript.TranscriptConstants
+@import dev.skywolfxp.transcript.TranscriptUtils
 
 @param List<Message> messages
 @param TextChannel textChannel
@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <title>#${textChannel.getName()} | ${textChannel.getGuild().getName()}</title>
 
   <!-- Discord base64 Favicon -->

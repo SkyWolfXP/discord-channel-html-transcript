@@ -1,4 +1,4 @@
-package io.github.skywolfxp.transcript;
+package dev.skywolfxp.transcript;
 
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;

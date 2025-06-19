@@ -1,4 +1,4 @@
-package io.github.skywolfxp.transcript;
+package dev.skywolfxp.transcript;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;

@@ -2,12 +2,22 @@
 
 ## WIP
 
+- Implement Discord's new Components V2.
+- Improve embed styling.
+
+## 2.0.0
+
+### Changed
+
+- **Migrate the maven GroupID from `io.github.skywolfxp` to `dev.skywolfxp`.**
+- Update footer styling.
+
 ## 1.1.1
 
 ### Changed
 
 - Replace Google's "DM sans" font with Discord's "gg sans" font.
-- Update the footer styling.
+- Update footer styling.
 
 ## 1.1.0
 

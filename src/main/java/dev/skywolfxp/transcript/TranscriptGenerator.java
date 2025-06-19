@@ -1,4 +1,4 @@
-package io.github.skywolfxp.transcript;
+package dev.skywolfxp.transcript;
 
 import net.dv8tion.jda.api.entities.ISnowflake;
 import net.dv8tion.jda.api.entities.Message;
@@ -17,7 +17,7 @@ import java.util.List;
  */
 public final class TranscriptGenerator {
   private final Transcript transcript;
-
+  
   /**
    * Constructs {@link TranscriptGenerator} with provided {@link Transcript}.
    *
@@ -27,7 +27,7 @@ public final class TranscriptGenerator {
   public TranscriptGenerator(@NotNull Transcript transcript) {
     this.transcript = transcript;
   }
-
+  
   /**
    * @param textChannel
    *   The {@link TextChannel} for which to create the transcript.
@@ -41,18 +41,18 @@ public final class TranscriptGenerator {
   public Transcript createTranscript(@NotNull TextChannel textChannel) throws IllegalArgumentException {
     List<Message> messages =
       textChannel.getIterableHistory().stream().sorted(Comparator.comparing(ISnowflake::getTimeCreated)).toList();
-
+    
     if (messages.isEmpty()) {
       throw new IllegalArgumentException("TextChannel: %s contains no messages".formatted(textChannel.getName()));
     }
-
+    
     HashMap<String, Object> params = new HashMap<>();
     params.put("textChannel", textChannel);
     params.put("messages", messages);
     params.put("isDev", false);
-
+    
     transcript.getTemplateEngine().render("template.jte", params, transcript.getUtf8ByteOutput());
-
+    
     return transcript;
   }
 }
