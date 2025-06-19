@@ -3,13 +3,13 @@
 <p align="center"><strong>Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord visuals!</strong></p>
 
 <p align="center">
-    <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=flat-square&label=MAVEN&labelColor=black&color=008E00"></a>
-    <a href="https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/skywolfxp/discord-channel-html-transcript?style=flat-square&label=LICENSE&labelColor=black&color=008E00&link=https%3A%2F%2Fgithub.com%2FSkyWolfXP%2Fdiscord-channel-html-transcript%2Fblob%2Fmain%2FLICENSE"></a>
+    <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&label=MAVEN&labelColor=000000&color=008E00"></a>
+    <a href="https://github.com/skywolfxp/discord-channel-html-transcript/blob/main/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/skywolfxp/discord-channel-html-transcript?style=for-the-badge&label=LICENSE&labelColor=000000&color=008E00"></a>
 </p>
 
 ## About
 
-This Java library is the **only** up-to-date Transcript generator, displaying your favorite Discord look!\
+This Java library is the **most** up-to-date Transcript generator, displaying your favorite Discord look!\
 Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
 & [**Java Template Engine**](https://github.com/casid/jte/).
 
@@ -31,8 +31,9 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
 ## Legal Compliance
 
 **This project utilizes
-Discord's "[gg sans](https://my.corebook.io/1zObrQ89Q4wHhgFCfYIUhMUvmNf4XjxO/03-typography/download)" font that is the
-property of [Discord Inc](https://discord.com/). I do not claim any ownership of this font.**
+the [gg sans](https://my.corebook.io/1zObrQ89Q4wHhgFCfYIUhMUvmNf4XjxO/03-typography/download) font that is the
+property of Discord Inc.**\
+**I do not claim ownership of this font.**
 
 ## Features
 
@@ -83,18 +84,22 @@ dependencies {
 
 ## Testing & Development
 
-1. Run [TranscriptGeneratorTest#createTranscript()](src/test/java/io/github/skywolfxp/transcript/TranscriptGeneratorTest.java), A
-   `discord-channel-html-transcript` folder will be created under:
-    - **Windows:** `%USERPROFILE%\AppData\Local\Temp`
-    - **macOS:** `/tmp`
-    - **Linux:** `/tmp`
+1.
+
+Run [TranscriptGeneratorTest#createTranscript()](src/test/java/io/github/skywolfxp/transcript/TranscriptGeneratorTest.java),
+A
+`discord-channel-html-transcript` folder will be created under:
+
+- **Windows:** `%USERPROFILE%\AppData\Local\Temp`
+- **macOS:** `/tmp`
+- **Linux:** `/tmp`
+
 2. Copy the CSS in [style.jte](src/main/resources/template/css/style.jte)
    to `/discord-channel-html-transcript/style.css` and experiment with your own CSS!
 
 ## Socials
 
-<a href="https://www.fiverr.com/skywolfxp"><img alt="Fiverr" src="https://img.shields.io/badge/%40skywolfxp-%231DBF73?style=flat-square&logo=fiverr&logoColor=FFFFFF&logoSize=auto"></a>
-<a href="https://www.upwork.com/freelancers/~013d98c8a8af272cbb"><img alt="Upwork" src="https://img.shields.io/badge/Omar_D.-%236FDA44?style=flat-square&logo=upwork&logoColor=FFFFFF"></a>
-<a href="https://discord.com/users/974748803305455627"><img alt="Discord" src="https://img.shields.io/badge/%40skywolfxp.me-%235865F2?style=flat-square&logo=discord&logoColor=FFFFFF"></a>
-<a href="https://www.reddit.com/user/skywolfxp"><img alt="Reddit" src="https://img.shields.io/badge/u%2Fskywolfxp-%23FF4500?style=flat-square&logo=reddit&logoColor=FFFFFF"></a>
-<a href="https://stackoverflow.com/users/16410630"><img alt="Stack Overflow" src="https://img.shields.io/badge/SkyWolfXP-%23F58025?style=flat-square&logo=stackoverflow&logoColor=FFFFFF"></a>
+<a href="https://fiverr.com/skywolfxp"><img alt="Fiverr" height="24" src="https://img.shields.io/badge/@skywolfxp-1DBF73?style=flat-square&logo=fiverr&logoColor=FFFFFF&logoSize=auto"></a>
+<a href="https://upwork.com/freelancers/~013d98c8a8af272cbb"><img alt="Upwork" height="24" src="https://img.shields.io/badge/Omar_D.-6FDA44?style=flat-square&logo=upwork&logoColor=FFFFFF&logoSize=auto"></a>
+<a href="https://reddit.com/user/skywolfxp"><img alt="Reddit" height="24" src="https://img.shields.io/badge/u/skywolfxp-FF4500?style=flat-square&logo=reddit&logoColor=FFFFFF&logoSize=auto"></a>
+<a href="https://discord.com/users/974748803305455627"><img alt="Discord" height="24" src="https://img.shields.io/badge/skywolfxp.dev-5865F2?style=flat-square&logo=discord&logoColor=FFFFFF&logoSize=auto"></a>
