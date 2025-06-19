@@ -6,7 +6,7 @@
 
   <groupId>dev.skywolfxp</groupId>
   <artifactId>discord-channel-html-transcript</artifactId>
-  <version>1.1.1</version>
+  <version>2.0.0</version>
 
   <name>discord-channel-html-transcript</name>
   <description>
@@ -60,7 +60,7 @@
           <groupId>club.minnced</groupId>
           <artifactId>opus-java</artifactId>
         </exclusion>
-        
+
         <exclusion>
           <groupId>com.google.crypto.tink</groupId>
           <artifactId>tink</artifactId>
