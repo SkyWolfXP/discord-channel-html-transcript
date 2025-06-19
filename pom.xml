@@ -10,8 +10,7 @@
 
   <name>discord-channel-html-transcript</name>
   <description>
-    Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord
-    visuals!
+    Java library to generate easily shareable HTML archives of channels, bringing back the familiar Discord visuals!
   </description>
   <url>https://github.com/skywolfxp/discord-channel-html-transcript</url>
 

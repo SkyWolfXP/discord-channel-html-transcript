@@ -1,6 +1,6 @@
 <h1 align="center">Discord Channel HTML Transcript</h1>
 
-<p align="center"><strong>Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord visuals!</strong></p>
+<p align="center"><strong>Java library to generate easily shareable HTML archives of channels, bringing back the familiar Discord visuals!</strong></p>
 
 <p align="center">
     <a href="https://central.sonatype.com/artifact/io.github.skywolfxp/discord-channel-html-transcript"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.skywolfxp/discord-channel-html-transcript?style=for-the-badge&label=MAVEN&labelColor=000000&color=008E00"></a>
@@ -30,16 +30,15 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
 
 ## Legal Compliance
 
-**This project utilizes
-the [gg sans](https://my.corebook.io/1zObrQ89Q4wHhgFCfYIUhMUvmNf4XjxO/03-typography/download) font that is the
-property of Discord Inc.**\
+**This project utilizes the [gg sans](https://my.corebook.io/1zObrQ89Q4wHhgFCfYIUhMUvmNf4XjxO/03-typography/download)
+font that is the property of Discord Inc.**\
 **I do not claim ownership of this font.**
 
 ## Features
 
 - **Markdown**
     - Standard Markdown
-    - [Discord's Custom Markdown](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline)
+    - [Discord Chat Formatting](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline)
 - **Attachments**
     - Images
     - Other Files
@@ -84,18 +83,15 @@ dependencies {
 
 ## Testing & Development
 
-1.
+1. Run [TranscriptGeneratorTest#createTranscript()](src/test/java/io/github/skywolfxp/transcript/TranscriptGeneratorTest.java), A
+   `discord-channel-html-transcript` folder will be created under:
 
-Run [TranscriptGeneratorTest#createTranscript()](src/test/java/io/github/skywolfxp/transcript/TranscriptGeneratorTest.java),
-A
-`discord-channel-html-transcript` folder will be created under:
+    - **Windows:** `%USERPROFILE%\AppData\Local\Temp`
+    - **macOS:** `/tmp`
+    - **Linux:** `/tmp`
 
-- **Windows:** `%USERPROFILE%\AppData\Local\Temp`
-- **macOS:** `/tmp`
-- **Linux:** `/tmp`
-
-2. Copy the CSS in [style.jte](src/main/resources/template/css/style.jte)
-   to `/discord-channel-html-transcript/style.css` and experiment with your own CSS!
+2. Copy the CSS in [style.jte](src/main/resources/template/css/style.jte) to
+   `/discord-channel-html-transcript/style.css` and experiment with your own CSS!
 
 ## Socials
 
