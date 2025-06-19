@@ -80,10 +80,11 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 1.5rem;
+    height: 1.75rem;
     background-color: var(--background-base-lowest);
     border-top: 1px solid var(--border-subtle);
     font-weight: 500;
+    line-height: 1.75rem;
     color: var(--text-normal);
   }
 

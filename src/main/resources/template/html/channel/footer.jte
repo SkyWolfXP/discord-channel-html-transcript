@@ -2,7 +2,7 @@
   <a
     property="dct:title"
     rel="cc:attributionURL"
-    href="https://github.com/SkyWolfXP/discord-channel-html-transcript"
+    href="https://github.com/skywolfxp/discord-channel-html-transcript"
     class="markup__link"
   >
     Discord Channel HTML Transcript
@@ -11,7 +11,7 @@
   <a
     rel="cc:attributionURL dct:creator"
     property="cc:attributionName"
-    href="https://github.com/SkyWolfXP"
+    href="https://github.com/skywolfxp"
     class="markup__link"
   >
     SkyWolfXP
@@ -28,7 +28,7 @@
   </a>
   &nbsp;•&nbsp;
   <a
-    href="https://github.com/SkyWolfXP/discord-channel-html-transcript/#legal-compliance"
+    href="https://github.com/skywolfxp/discord-channel-html-transcript/#legal-compliance"
     class="markup__link"
   >
     Legal Compliance
