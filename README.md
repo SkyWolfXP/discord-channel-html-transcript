@@ -23,7 +23,7 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
         <li><a href="#features">Features</a></li>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
-        <li><a href="#testing--development">Testing & Development</a></li>
+        <li><a href="#development">Testing & Development</a></li>
         <li><a href="#socials">Socials</a></li>
     </ol>
 </details>
@@ -81,7 +81,7 @@ dependencies {
 }
 ```
 
-## Testing & Development
+## Development
 
 1. Run [TranscriptGeneratorTest#createTranscript()](src/test/java/io/github/skywolfxp/transcript/TranscriptGeneratorTest.java), A
    `discord-channel-html-transcript` folder will be created under:
