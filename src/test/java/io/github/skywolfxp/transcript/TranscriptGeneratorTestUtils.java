@@ -19,41 +19,41 @@ import static io.github.skywolfxp.transcript.TranscriptTestUtils.*;
 
 public class TranscriptGeneratorTestUtils {
   private final static User AUTHOR_1 = mockAuthor("545902760453996546", "SkyWolfXP", AVATAR_URL_USER, false);
-  private final static User AUTHOR_2 = mockAuthor("974748803305455627", "V0RT3X™", AVATAR_URL_BOT, true);
-
+  private final static User AUTHOR_2 = mockAuthor("974748803305455627", "VORTEX", AVATAR_URL_BOT, true);
+  
   @NotNull
   public static Guild createGuild() {
     GuildMockBuilder guildBuilder = new GuildMockBuilder().withJDA(mockJDA(AUTHOR_1));
     guildBuilder.withGuildChannel("420", mockTextChannel("discord-channel-html-transcript", guildBuilder.build()));
     guildBuilder.withRole("420", mockRole("Admin", 51200));
-
+    
     return guildBuilder.build();
   }
-
+  
   @NotNull
   public static List<Message> createMessages(@NotNull Guild guild) {
     Message.Attachment messageAttachmentImage = mockAttachment(true);
     Message.Attachment messageAttachmentFile = mockAttachment(false);
-
+    
     List<MessageEmbed> embeds = new ArrayList<>();
     embeds.add(createMessageEmbed());
-
+    
     Message message1 = new MessageMockBuilder(AUTHOR_1).withContent("**This**").build();
-
+    
     Message message2 = new MessageMockBuilder(AUTHOR_1)
-      .withContent("[Library](https://github.com/SkyWolfXP/discord-channel-html-transcript)")
+      .withContent("[Library](https://github.com/skywolfxp/discord-channel-html-transcript)")
       .build();
-
+    
     Message message3 = new MessageMockBuilder(AUTHOR_1).withContent("__is__ *Awesome!*").build();
-
+    
     Message message4 = new MessageMockBuilder(AUTHOR_2).withEmbeds(embeds).withActionRows(createActionRows()).build();
-
+    
     Message message5 = new MessageMockBuilder(AUTHOR_1)
       .withAttachments(List.of(messageAttachmentImage, messageAttachmentFile))
       .withReactions(List.of(mockReactionUnicodeEmoji(), mockReactionCustomEmoji(), mockReactionRichCustomEmoji()))
       .withReference(message4)
       .build();
-
+    
     Message message6 = new MessageMockBuilder(AUTHOR_2)
       .withGuild(guild)
       .withContent("""
@@ -75,7 +75,7 @@ public class TranscriptGeneratorTestUtils {
                    """)
       .withInteractionMetadata(mockInteraction(AUTHOR_1))
       .build();
-
+    
     List<Message> messages = new ArrayList<>();
     messages.add(message1);
     messages.add(message2);
@@ -83,10 +83,10 @@ public class TranscriptGeneratorTestUtils {
     messages.add(message4);
     messages.add(message5);
     messages.add(message6);
-
+    
     return messages;
   }
-
+  
   @NotNull
   public static MessageEmbed createMessageEmbed() {
     return new EmbedBuilder()
@@ -102,21 +102,20 @@ public class TranscriptGeneratorTestUtils {
       .setColor(51200)
       .build();
   }
-
+  
   @NotNull
   public static List<ActionRow> createActionRows() {
-    List<Button> actionRowButtons = new ArrayList<>();
-    actionRowButtons.add(Button.of(ButtonStyle.PRIMARY, "1", "Primary", Emoji.fromUnicode("💠")));
-    actionRowButtons.add(Button.of(ButtonStyle.SECONDARY, "2", "Secondary", Emoji.fromUnicode("💠")));
-    actionRowButtons.add(Button.of(ButtonStyle.SUCCESS, "3", "Success", Emoji.fromUnicode("💠")));
-    actionRowButtons.add(Button.of(ButtonStyle.DANGER, "4", "Danger", Emoji.fromUnicode("💠")));
-    actionRowButtons.add(Button.of(ButtonStyle.LINK, "https://github.com/SkyWolfXP", "Link", Emoji.fromUnicode("🔗")));
-
-    List<ActionRow> actionRows = new ArrayList<>();
-    actionRows.add(ActionRow.of(actionRowButtons));
-    actionRows.add(ActionRow.of(actionRowButtons.stream().map(Button::asDisabled).toList()));
-    actionRows.add(ActionRow.of(StringSelectMenu.create("0").addOption("Option #1", "Value #1").build()));
-
-    return actionRows;
+    List<Button> enabledButtons = new ArrayList<>();
+    enabledButtons.add(Button.of(ButtonStyle.PRIMARY, "1", "Primary", Emoji.fromUnicode("💠")));
+    enabledButtons.add(Button.of(ButtonStyle.SECONDARY, "2", "Secondary", Emoji.fromUnicode("💠")));
+    enabledButtons.add(Button.of(ButtonStyle.SUCCESS, "3", "Success", Emoji.fromUnicode("💠")));
+    enabledButtons.add(Button.of(ButtonStyle.DANGER, "4", "Danger", Emoji.fromUnicode("💠")));
+    enabledButtons.add(Button.of(ButtonStyle.LINK, "https://github.com/skywolfxp", "Link", Emoji.fromUnicode("🔗")));
+    
+    List<Button> disabledButtons = enabledButtons.stream().map(Button::asDisabled).toList();
+    
+    StringSelectMenu selectMenu = StringSelectMenu.create("0").addOption("Option #1", "Value #1").build();
+    
+    return List.of(ActionRow.of(enabledButtons), ActionRow.of(disabledButtons), ActionRow.of(selectMenu));
   }
 }
