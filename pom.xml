@@ -13,12 +13,12 @@
     Java library for generating easily shareable, offline HTML files of channels, retaining the familiar Discord
     visuals!
   </description>
-  <url>https://github.com/SkyWolfXP/discord-channel-html-transcript</url>
+  <url>https://github.com/skywolfxp/discord-channel-html-transcript</url>
 
   <licenses>
     <license>
-      <name>Attribution-ShareAlike 4.0 International</name>
-      <url>https://github.com/SkyWolfXP/discord-channel-html-transcript/blob/main/LICENSE</url>
+      <name>CC BY-SA 4.0</name>
+      <url>https://github.com/skywolfxp/discord-channel-html-transcript/blob/main/LICENSE</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -26,32 +26,35 @@
   <developers>
     <developer>
       <name>SkyWolfXP</name>
-      <email>skywolfxp@gmail.com</email>
-      <organization>Github</organization>
-      <organizationUrl>https://github.com/SkyWolfXP</organizationUrl>
+      <email>contact@skywolfxp.dev</email>
+      <url>https://skywolfxp.dev</url>
     </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/SkyWolfXP/discord-channel-html-transcript.git</connection>
+    <connection>
+      scm:git:git://github.com/skywolfxp/discord-channel-html-transcript.git
+    </connection>
     <developerConnection>
-      scm:git:ssh://git@github.com:SkyWolfXP/discord-channel-html-transcript.git
+      scm:git:ssh://git@github.com:skywolfxp/discord-channel-html-transcript.git
     </developerConnection>
-    <url>https://github.com/SkyWolfXP/discord-channel-html-transcript</url>
+    <url>
+      https://github.com/skywolfxp/discord-channel-html-transcript
+    </url>
   </scm>
 
   <properties>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jte.version>3.2.0</jte.version>
+    <jte.version>3.2.1</jte.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>net.dv8tion</groupId>
       <artifactId>JDA</artifactId>
-      <version>5.3.2</version>
+      <version>5.6.1</version>
 
       <exclusions>
         <exclusion>
@@ -78,7 +81,7 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.13.0-M2</version>
+      <version>5.13.1</version>
 
       <scope>test</scope>
     </dependency>
@@ -86,7 +89,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>5.17.0</version>
+      <version>5.18.0</version>
 
       <scope>test</scope>
     </dependency>
