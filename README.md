@@ -83,7 +83,7 @@ dependencies {
 
 ## Development
 
-1. Run [TranscriptGeneratorTest#createTranscript()](src/test/java/io/github/skywolfxp/transcript/TranscriptGeneratorTest.java), A
+1. Run [TranscriptGeneratorTest#createTranscript()](src/test/java/dev/skywolfxp/transcript/TranscriptGeneratorTest.java), A
    `discord-channel-html-transcript` folder will be created under:
 
     - **Windows:** `%USERPROFILE%\AppData\Local\Temp`
