@@ -21,9 +21,9 @@ Uses [**Java Discord API**](https://github.com/discord-jda/JDA)
     <ol>
         <li><a href="#legal-compliance">Legal Compliance</a></li>
         <li><a href="#features">Features</a></li>
-        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#requirements">Requirements</a></li>
         <li><a href="#installation">Installation</a></li>
-        <li><a href="#development">Testing & Development</a></li>
+        <li><a href="#development">Development</a></li>
         <li><a href="#socials">Socials</a></li>
     </ol>
 </details>
